@@ -1,2 +1,2 @@
 # Python
-python语言学习
+Python语言学习
