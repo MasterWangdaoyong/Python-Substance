@@ -176,7 +176,7 @@
 # print(user_profile)
 
 # 8.6  将函数存储在模块中 (将函数存在独立的文件中)
-# 8.6.1  导入整个模块  见文件夹
+# 8.6.1  导入整个模块  见文件夹 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 # 8.6.2  导入特定的函数
 # import A #导入整个脚本 脚本内的任何东西 不管是数据还是函数 所有东西一起导入
@@ -185,7 +185,7 @@
 # from pizza import make_pizza #导入pizza脚本内的 make_pizza函数
 
 # 8.6.3  使用 as 给函数指定别名 #！！！－－－导入脚本文件时所需函数最好是用这种方法  －－－！！！  给一个自己的定义更加明白函数的调用
-## from A import function as newfunctionName 给函数名取个外号（别名），当存在函数名太长或者存在同名时可用 ！！！
+##！！！！！！  from A import function as newfunctionName 给函数名取个外号（别名），当存在函数名太长或者存在同名时可用 ！！！
 # from pizza import make_pizza as mp
 # mp(16, 'pepperoni')
 # mp(12, 'mushrooms', 'green peppers', 'extra cheese')

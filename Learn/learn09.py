@@ -117,4 +117,212 @@
 
 
 # 9.3  继承
-# 9.3.1  子类的方法  __init__()
+# 9.3.1  子类的方法  __init__()  书页P148面祥细解说
+# class Car():    #20200929
+#     def __init__(self, make, model, year):
+#         """初始化描述汽车的属性"""
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.odometer_reading = 0   #可以理解成私有变量
+    
+#     def get_descriptive_name(self):
+#         """返回整洁的描述性信息"""
+#         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+#         return long_name.title()
+    
+#     def read_odometer(self):        #调用了私用变量
+#         """打印一条指出汽车里程的消息"""
+#         print("This car has " + str(self.odometer_reading) + " miles on it.")
+
+#     def updata_odometer(self, mileage):
+#         self.odometer_reading = mileage   
+
+# class ElectricCar(Car):
+#     """电动汽车的独特之处"""
+
+#     def __init__(self, make, model, year):
+#         """初始化父类的属性"""
+#         super().__init__(make, model, year) #特殊函数 关联父类  父类也叫超类 superclass
+
+# my_tesla = ElectricCar('tesla', 'modle s', 2016)
+# print(my_tesla.get_descriptive_name())
+
+
+# 9.3.2  Python 2.7 中的继承 过
+
+# 9.3.3  给子类定义属性和方法
+# class Car():    #20200929
+#     def __init__(self, make, model, year):
+#         """初始化描述汽车的属性"""
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.odometer_reading = 0   #可以理解成私有变量
+    
+#     def get_descriptive_name(self):
+#         """返回整洁的描述性信息"""
+#         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+#         return long_name.title()
+    
+#     def read_odometer(self):        #调用了私用变量
+#         """打印一条指出汽车里程的消息"""
+#         print("This car has " + str(self.odometer_reading) + " miles on it.")
+
+#     def updata_odometer(self, mileage):
+#         self.odometer_reading = mileage   
+
+# class ElectricCar(Car):
+#     """电动汽车的独特之处"""
+
+#     def __init__(self, make, model, year):
+#         """初始化父类的属性"""
+#         super().__init__(make, model, year) #特殊函数 关联父类  父类也叫超类 superclass
+#         self.bettery_size = 70
+    
+#     def describe_battery(self):
+#         """打印一条描述电瓶变量的消息"""
+#         print("This car has a " + str(self.bettery_size) + "-kwh battery.")        
+
+# my_tesla = ElectricCar('tesla', 'modle s', 2016)
+# print(my_tesla.get_descriptive_name())
+# my_tesla.describe_battery()
+
+
+# 9.3.4  重写父类的方法
+# class Car():
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+
+#     def fill_gas_tank(self):
+#         print(self.a)
+
+# class ElectricCar(Car):
+
+#     def fill_gas_tank(self):
+#         """电动汽车没有油箱"""
+#         print("This car doesn't need a gas tank!")
+
+
+# 9.3.5  将实例用作属性
+#1
+# class Car():    #20200929
+#     def __init__(self, make, model, year):
+#         """初始化描述汽车的属性"""
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.odometer_reading = 0   #可以理解成私有变量    
+#     def get_descriptive_name(self):
+#         """返回整洁的描述性信息"""
+#         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+#         return long_name.title()    
+#     def read_odometer(self):        #调用了私用变量
+#         """打印一条指出汽车里程的消息"""
+#         print("This car has " + str(self.odometer_reading) + " miles on it.")
+#     def updata_odometer(self, mileage):
+#         self.odometer_reading = mileage  
+
+# class Battery():
+#     """一次模拟电动汽车电瓶的简单尝试"""
+#     def __init__(self, bettery_size=70):
+#         """初始化电瓶的属性"""
+#         self.bettery_size = bettery_size
+#     def describe_battery(self):
+#         """打印一条描述电瓶容易的消息"""
+#         print("This car has a " + str(self.bettery_size) + "-kwh battery.")
+
+# class ElectricCar(Car):
+#     """电动汽车的独特之处"""
+#     def __init__(self, make, model, year):
+#         """初始化父类的属性"""
+#         super().__init__(make, model, year) #特殊函数 关联父类  父类也叫超类 superclass
+#         self.bettery = Battery() #将函数当个值使用，传递进来
+
+# my_tesla = ElectricCar('tesla', 'modle s', 2016)
+# print(my_tesla.get_descriptive_name())
+# my_tesla.bettery.describe_battery()  #将函数当个值使用，当值调用函数
+
+
+#2
+# class Car():    #20200929
+#     def __init__(self, make, model, year):
+#         """初始化描述汽车的属性"""
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.odometer_reading = 0   #可以理解成私有变量    
+#     def get_descriptive_name(self):
+#         """返回整洁的描述性信息"""
+#         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+#         return long_name.title()    
+#     def read_odometer(self):        #调用了私用变量
+#         """打印一条指出汽车里程的消息"""
+#         print("This car has " + str(self.odometer_reading) + " miles on it.")
+#     def updata_odometer(self, mileage):
+#         self.odometer_reading = mileage  
+
+# class Battery():
+#     """一次模拟电动汽车电瓶的简单尝试"""
+#     def __init__(self, bettery_size=70):
+#         """初始化电瓶的属性"""
+#         self.bettery_size = bettery_size
+#     def describe_battery(self):
+#         """打印一条描述电瓶容易的消息"""
+#         print("This car has a " + str(self.bettery_size) + "-kwh battery.")
+#     def get_range(self):
+#         """打印一条消息，指出电瓶的续航里程"""
+#         if self.bettery_size == 70:
+#             range = 240
+#         elif self.bettery_size == 85:
+#             range = 270
+#         message = "This car can go approximately " + str(range)
+#         message += " miles on full charge."
+#         print(message)
+
+# class ElectricCar(Car):
+#     """电动汽车的独特之处"""
+#     def __init__(self, make, model, year):
+#         """初始化父类的属性"""
+#         super().__init__(make, model, year) #特殊函数 关联父类  父类也叫超类 superclass
+#         self.bettery = Battery() #将类当个值使用，传递进来
+
+# my_tesla = ElectricCar('tesla', 'modle s', 2016)
+# print(my_tesla.get_descriptive_name())
+# my_tesla.bettery.describe_battery()  #将类当个值使用，当值调用类里面的函数
+# my_tesla.bettery.get_range()
+
+
+# 9.3.6  模拟实物
+
+
+# 9.4  导入类
+# 9.4.1  导入单个类
+
+# 9.4.2  在一个模块中存储多个类
+
+# 9.4.3  从一个模块中导入多个类
+# from car import Car, ElectricCar
+# my_beetle = Car('volkswage', 'beetle', 2016)
+# print(my_beetle.get_descriptive_name())
+# my_tesla = ElectricCar('tesla', 'modle s', 2016)
+# print(my_tesla.get_descriptive_name())
+
+# 9.4.4  导入整个模块
+# import car
+# my_beetle = car.Car('volkswage', 'beetle', 2016)
+# print(my_beetle.get_descriptive_name())
+# my_tesla = car.ElectricCar('tesla', 'modle s', 2016)
+# print(my_tesla.get_descriptive_name())
+
+# 9.4.5  导入模块中的所有类   不推荐使用此方法
+# from A import * 
+
+# 9.4.6  在一个模块中导入另一个模块 祥见书页P158
+# 书中排版有点颠倒！  应该先写car文件  再写electricCar文件 然后最后写main文件
+# 分三个文件，两个头文件，并且一个头文件调用了另一个头文件；一个main文件调用头文件。
+# main文件可以调用一个，也可以调用两个头文件。
+
+# 9.5  Python 标准库
+# 9.6  类编码风格 略过
