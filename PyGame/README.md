@@ -1,0 +1,1 @@
+A、安装python对应版本库 pip install -U pygame --user  https://www.pygame.org/wiki/GettingStarted
