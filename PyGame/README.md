@@ -13,3 +13,7 @@ A、安装python对应版本库 pip install -U pygame --user  https://www.pygame
 
 文件ship.py包含Ship 类，这个类包含方法__init__() 、管理飞船位置的方法update() 以及在屏幕上绘制飞船的方法blitme() 。表示飞船的图像存储在文件夹images下的
 文件ship.bmp中。
+
+
+
+研究既有代码，确定实现新功能前是否要进行重构。在给项目添加新功能前，还应审核既有代码。每进入一个新阶段，通常项目都会更复杂，因此最好对混乱或低效的代码进行清理。

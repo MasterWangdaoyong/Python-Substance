@@ -19,3 +19,4 @@ class Settings():
         self.bullet_width = 3   #图宽
         self.bullet_height = 15  #图高
         self.bullet_color = 60, 60, 60  #图色
+        self.bullet_allowed = 3 #数量
