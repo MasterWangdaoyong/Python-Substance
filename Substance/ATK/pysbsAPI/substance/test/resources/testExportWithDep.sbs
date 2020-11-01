@@ -1,0 +1,1945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package>
+    <identifier v="Unsaved Package"/>
+    <formatVersion v="1.1.0.202001"/>
+    <updaterVersion v="1.1.0.202001"/>
+    <fileUID v="{23b3d9f2-e75a-43cc-9962-5ad142ef0811}"/>
+    <versionUID v="0"/>
+    <dependencies>
+        <dependency>
+            <filename v="?himself"/>
+            <uid v="1275477541"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="sbs://materials/pbr/metal_plate_001.sbs"/>
+            <uid v="1275477760"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="api://resultTerrainMultiFractal.sbs"/>
+            <uid v="1263057846"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="refExportWithDep/TerrainHelpers.sbs"/>
+            <uid v="1358518312"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="api://TerrainHelpers2.sbs"/>
+            <uid v="1281027507"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="api://resultDemoIterationFlame.sbs"/>
+            <uid v="1262186850"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="Flame.sbsar"/>
+            <uid v="1277557344"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="aSubstanceWithSBSARDep.sbs"/>
+            <uid v="1277564244"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+        <dependency>
+            <filename v="aMDLGraphWithSbsDep.sbs"/>
+            <uid v="1291991494"/>
+            <type v="package"/>
+            <fileUID v="0"/>
+            <versionUID v="0"/>
+        </dependency>
+    </dependencies>
+    <content>
+        <graph>
+            <identifier v="testExportWithDep"/>
+            <uid v="1275477542"/>
+            <graphOutputs/>
+            <compNodes>
+                <compNode>
+                    <uid v="1275477586"/>
+                    <GUILayout>
+                        <gpos v="-336 48 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1275477587"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="bitmap"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="bitmapresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString v="pkg:///Resources/Craters?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                                <parameter>
+                                    <name v="outputsize"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueInt2 v="10 10"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1275477596"/>
+                    <GUILayout>
+                        <gpos v="-336 240 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1275477597"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="bitmap"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="bitmapresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString v="pkg:///Resources/Craters_1?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                                <parameter>
+                                    <name v="outputsize"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueInt2 v="10 10"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1275477644"/>
+                    <GUILayout>
+                        <gpos v="-190.204971 48 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1275477645"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="svg"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="vectorresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString v="pkg:///Resources/SD_Icon_Color?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1275477657"/>
+                    <GUILayout>
+                        <gpos v="-176 240 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1275477658"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="svg"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="vectorresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString
+                                                v="pkg:///Resources/SD_Icon_Color_1?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1275479886"/>
+                    <GUILayout>
+                        <gpos v="-304 464 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1275479887"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479888"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479889"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479890"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479891"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479892"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479893"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479894"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1275479895"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///metal_plate_001?dependency=1275477760"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1275479887"/>
+                                    <identifier v="diffuse"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479888"/>
+                                    <identifier v="basecolor"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479889"/>
+                                    <identifier v="normal"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479890"/>
+                                    <identifier v="specular"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479891"/>
+                                    <identifier v="glossiness"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479892"/>
+                                    <identifier v="roughness"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479893"/>
+                                    <identifier v="metallic"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479894"/>
+                                    <identifier v="ambient_occlusion"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1275479895"/>
+                                    <identifier v="height"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1275481697"/>
+                    <GUILayout>
+                        <gpos v="-80 496 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1275481698"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///TerrainMultiFractal?dependency=1263057846"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1275481698"/>
+                                    <identifier v="output_1"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1276358687"/>
+                    <GUILayout>
+                        <gpos v="-496 336 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1276358688"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="bitmap"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="bitmapresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString v="pkg:///Resources/Craters_2?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                                <parameter>
+                                    <name v="outputsize"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueInt2 v="10 10"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1276360107"/>
+                    <GUILayout>
+                        <gpos v="-639.947998 304 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1276360108"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="bitmap"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="bitmapresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString v="pkg:///Resources/Craters_3?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                                <parameter>
+                                    <name v="outputsize"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueInt2 v="10 10"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1276370676"/>
+                    <GUILayout>
+                        <gpos v="-752 176 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1276370677"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compFilter>
+                            <filter v="bitmap"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="bitmapresourcepath"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueString v="pkg:///Resources/Craters_4?dependency=1275477541"/>
+                                    </paramValue>
+                                </parameter>
+                                <parameter>
+                                    <name v="outputsize"/>
+                                    <relativeTo v="0"/>
+                                    <paramValue>
+                                        <constantValueInt2 v="10 10"/>
+                                    </paramValue>
+                                </parameter>
+                            </parameters>
+                        </compFilter>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1276605372"/>
+                    <GUILayout>
+                        <gpos v="-912 400 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1276605373"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1276605374"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///GetMinMax?dependency=1358518312"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1276605373"/>
+                                    <identifier v="Minimum"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1276605374"/>
+                                    <identifier v="Maximum"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1276605383"/>
+                    <GUILayout>
+                        <gpos v="-752 496 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1276605384"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                        <compOutput>
+                            <uid v="1276605385"/>
+                            <comptype v="2"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///GetMinMax?dependency=1358518312"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1276605384"/>
+                                    <identifier v="Minimum"/>
+                                </outputBridging>
+                                <outputBridging>
+                                    <uid v="1276605385"/>
+                                    <identifier v="Maximum"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1276618416"/>
+                    <GUILayout>
+                        <gpos v="-1072 304 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1276618417"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///Flame?dependency=1262186850"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1276618417"/>
+                                    <identifier v="output"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1277557345"/>
+                    <GUILayout>
+                        <gpos v="-624 80 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1277557346"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///Flame?dependency=1277557344"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1277557346"/>
+                                    <identifier v="output"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+                <compNode>
+                    <uid v="1277564266"/>
+                    <GUILayout>
+                        <gpos v="-912 80 0"/>
+                    </GUILayout>
+                    <compOutputs>
+                        <compOutput>
+                            <uid v="1277564277"/>
+                            <comptype v="1"/>
+                        </compOutput>
+                    </compOutputs>
+                    <compImplementation>
+                        <compInstance>
+                            <path v="pkg:///aSubstanceWithSBSARDep?dependency=1277564244"/>
+                            <parameters/>
+                            <outputBridgings>
+                                <outputBridging>
+                                    <uid v="1277564277"/>
+                                    <identifier v="output"/>
+                                </outputBridging>
+                            </outputBridgings>
+                        </compInstance>
+                    </compImplementation>
+                </compNode>
+            </compNodes>
+            <baseParameters>
+                <parameter>
+                    <name v="outputsize"/>
+                    <relativeTo v="0"/>
+                    <paramValue>
+                        <constantValueInt2 v="9 9"/>
+                    </paramValue>
+                </parameter>
+                <parameter>
+                    <name v="pixelratio"/>
+                    <relativeTo v="0"/>
+                    <paramValue>
+                        <constantValueInt32 v="0"/>
+                    </paramValue>
+                </parameter>
+            </baseParameters>
+            <root/>
+        </graph>
+        <group>
+            <uid v="1275477584"/>
+            <identifier v="Resources"/>
+            <content>
+                <resource>
+                    <identifier v="Craters"/>
+                    <uid v="1275477585"/>
+                    <type v="bitmap"/>
+                    <format v="png"/>
+                    <filepath v="refExportWithDep/Bitmaps/Craters.png"/>
+                </resource>
+                <resource>
+                    <identifier v="Craters_1"/>
+                    <uid v="1275477594"/>
+                    <type v="bitmap"/>
+                    <format v="PNG"/>
+                    <filepath v="testExportWithDep.resources/LA1864-Craters.png"/>
+                    <source>
+                        <externalcopy>
+                            <filename v="testExportWithDep.resources/LA1864-Craters.png"/>
+                        </externalcopy>
+                    </source>
+                </resource>
+                <resource>
+                    <identifier v="SD_Icon_Color"/>
+                    <uid v="1275477643"/>
+                    <type v="svg"/>
+                    <format v="svg"/>
+                    <filepath v="refExportWithDep/Bitmaps/SD_Icon_Color.svg"/>
+                </resource>
+                <resource>
+                    <identifier v="SD_Icon_Color_1"/>
+                    <uid v="1275477656"/>
+                    <type v="svg"/>
+                    <format v="svg"/>
+                    <filepath v="api://Bitmaps/SD_Icon_Color_1.svg"/>
+                    <source>
+                        <binembedded>
+                            <datalength v="1519"/>
+                            <strdata
+                                    v="AAAF73icbVRdb9tGEHznr9iyLw0Qirf3RbIwHTSyERRoEsNxW+SRpS4SUYoUqIPl5td39iTHbVEBul3d3c7O7uzp6s3TfqTHsByHeWpzXqmcjrGbNt04T6HNpzl/c51dfXfzcf3w+e6Wjo9buvv17S8/rykvyvJ3sy7Lm4cb+vTbO9JKsWqULcvbD3lG+S7Gw49leTqdViezmpdt+XBfyqXy/nZdIKL4FgGIEtCsVpu4yZFQ8vybFXhOx/Z/QAGiJBgpT8Mm7trcsV6p9DnEnHZh2O7if3cfh3B6Oz+1uSJFL0f/cIF3WMIxLI/hp+Mh9PG+i8Pc5k/vh81nfGkfQhSu+xC7TRe762y9hC6GDf3xFx3muHR9IF6xeU2nZYgxTHJwF2JY6FMYh2kLR1qAPrDLrsoXoKstIXw6fpmXfZsndwTyD+rC7fULzVd07LtRjvh8VDx7r/LsyzCObf79pSAou8x/JlWnIMwPXdzRps3fa9s0ZGvHNBa6IfkqKkzNz6bw2oh/Mc7hTkV94Sqcq6xoNBUVrkFOLAa/PG5o2YD1/ux4U9MoVukLrHmxkteYrC8MMK3swVYpHbOl8XxOl+umVskIJf1sNGhZRz2uF9pmcAtXk6+B42i0VrgSG5cQzlaTS3E9oNmT12QVAdtXKSN4GPKgpWVNWQ3u4hQ/KpzjekXa4oR0TQ6B8C2xVAhYD5YABCyIic1G1CVtlR+KekxcA5pMPnWrIe+k/16gCpTaoAkMZE6NdFTJCnzOCo8rLIp5NgnQVAnQcKrLVNJ1B4Iq1Y1OFE0qDAJ50vyV9q6yWcFWA8VKJl07SoLx2QilqiJRmas6WUNJm/OKQK5lDrjyWarZgDoDBVKhoTWEYeS10gURRYq0SqYHNSUFtahQW3LCj6W/ymOeRArhD6dKpWPwRnYSXkt1Z3LmYl1qd12LZ755ELaus7SVdmCgTo9orWTAJRTYGpmldpI70mqZMJQ6svTKpQm0njDlWI3MGIPvxTGpWsYQ9KwYYhLjLTAUwaMmhsTSI0fSEqD5hkkblxUGUrNKbwEZG3GsTjHQ00iQ8OMLS9vIeCGHxoNgJ4NmsYEpYYwmsOXVATg9vvQnJpVUX/MSr7zcyoJ/yOvsb8ItTMg="/>
+                        </binembedded>
+                    </source>
+                </resource>
+                <resource>
+                    <identifier v="Craters_2"/>
+                    <uid v="1276358686"/>
+                    <type v="bitmap"/>
+                    <format v="png"/>
+                    <filepath v="api://Bitmaps/Craters_1.png"/>
+                </resource>
+                <resource>
+                    <identifier v="Craters_3"/>
+                    <uid v="1276360106"/>
+                    <type v="bitmap"/>
+                    <format v="png"/>
+                    <filepath v="refExportWithDep/Bitmaps/Craters_2.png"/>
+                </resource>
+                <resource>
+                    <identifier v="Craters_4"/>
+                    <uid v="1276370675"/>
+                    <type v="bitmap"/>
+                    <format v="PNG"/>
+                    <filepath v="testExportWithDep/qq2212-Craters.png"/>
+                    <source>
+                        <externalcopy>
+                            <filename v="testExportWithDep.resources/qq2212-Craters.png"/>
+                        </externalcopy>
+                    </source>
+                </resource>
+            </content>
+        </group>
+        <mdl_graph>
+            <identifier v="MDL_Material"/>
+            <uid v="1291991374"/>
+            <mdl_annotations>
+                <mdl_annotation>
+                    <mdl_path v="mdl::anno::description(string)"/>
+                    <mdl_operands>
+                        <mdloperandvalue>
+                            <name v="description"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                    </mdl_operands>
+                </mdl_annotation>
+                <mdl_annotation>
+                    <mdl_path v="mdl::anno::in_group(string,string,string)"/>
+                    <mdl_operands>
+                        <mdloperandvalue>
+                            <name v="group"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                        <mdloperandvalue>
+                            <name v="subgroup"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                        <mdloperandvalue>
+                            <name v="subsubgroup"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                    </mdl_operands>
+                </mdl_annotation>
+                <mdl_annotation>
+                    <mdl_path v="mdl::anno::display_name(string)"/>
+                    <mdl_operands>
+                        <mdloperandvalue>
+                            <name v="name"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                    </mdl_operands>
+                </mdl_annotation>
+                <mdl_annotation>
+                    <mdl_path v="mdl::anno::key_words(string[])"/>
+                    <mdl_operands>
+                        <mdloperandarray>
+                            <name v="words"/>
+                            <type v="mdl::string[]"/>
+                            <items/>
+                        </mdloperandarray>
+                    </mdl_operands>
+                </mdl_annotation>
+                <mdl_annotation>
+                    <mdl_path v="mdl::anno::copyright_notice(string)"/>
+                    <mdl_operands>
+                        <mdloperandvalue>
+                            <name v="copyright"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                    </mdl_operands>
+                </mdl_annotation>
+                <mdl_annotation>
+                    <mdl_path v="mdl::anno::author(string)"/>
+                    <mdl_operands>
+                        <mdloperandvalue>
+                            <name v="name"/>
+                            <type v="mdl::string"/>
+                            <value v=""/>
+                        </mdloperandvalue>
+                    </mdl_operands>
+                </mdl_annotation>
+            </mdl_annotations>
+            <nodes>
+                <mdl_node>
+                    <uid v="1262518608"/>
+                    <connections>
+                        <connection>
+                            <identifier v="surface"/>
+                            <connRef v="1262518616"/>
+                        </connection>
+                        <connection>
+                            <identifier v="geometry"/>
+                            <connRef v="1262519007"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path
+                                    v="mdl::material(bool,material_surface,material_surface,color,material_volume,material_geometry)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="thin_walled"/>
+                                    <type v="mdl::bool"/>
+                                    <value v="false"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandstruct>
+                                    <name v="surface"/>
+                                    <type v="mdl::material_surface"/>
+                                    <members>
+                                        <mdloperandvalue>
+                                            <name v="scattering"/>
+                                            <type v="mdl::bsdf"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandstruct>
+                                            <name v="emission"/>
+                                            <type v="mdl::material_emission"/>
+                                            <members>
+                                                <mdloperandvalue>
+                                                    <name v="emission"/>
+                                                    <type v="mdl::edf"/>
+                                                    <value v=""/>
+                                                </mdloperandvalue>
+                                                <mdloperandvalue>
+                                                    <name v="intensity"/>
+                                                    <type v="mdl::color"/>
+                                                    <value v="0;0;0"/>
+                                                </mdloperandvalue>
+                                                <mdloperandvalue>
+                                                    <name v="mode"/>
+                                                    <type v="mdl::intensity_mode"/>
+                                                    <value v="0"/>
+                                                </mdloperandvalue>
+                                            </members>
+                                        </mdloperandstruct>
+                                    </members>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandstruct>
+                                <mdloperandstruct>
+                                    <name v="backface"/>
+                                    <type v="mdl::material_surface"/>
+                                    <members>
+                                        <mdloperandvalue>
+                                            <name v="scattering"/>
+                                            <type v="mdl::bsdf"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandstruct>
+                                            <name v="emission"/>
+                                            <type v="mdl::material_emission"/>
+                                            <members>
+                                                <mdloperandvalue>
+                                                    <name v="emission"/>
+                                                    <type v="mdl::edf"/>
+                                                    <value v=""/>
+                                                </mdloperandvalue>
+                                                <mdloperandvalue>
+                                                    <name v="intensity"/>
+                                                    <type v="mdl::color"/>
+                                                    <value v="0;0;0"/>
+                                                </mdloperandvalue>
+                                                <mdloperandvalue>
+                                                    <name v="mode"/>
+                                                    <type v="mdl::intensity_mode"/>
+                                                    <value v="0"/>
+                                                </mdloperandvalue>
+                                            </members>
+                                        </mdloperandstruct>
+                                    </members>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandstruct>
+                                <mdloperandvalue>
+                                    <name v="ior"/>
+                                    <type v="mdl::color"/>
+                                    <value v="1;1;1"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandstruct>
+                                    <name v="volume"/>
+                                    <type v="mdl::material_volume"/>
+                                    <members>
+                                        <mdloperandvalue>
+                                            <name v="scattering"/>
+                                            <type v="mdl::vdf"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="absorption_coefficient"/>
+                                            <type v="mdl::color"/>
+                                            <value v="0;0;0"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="scattering_coefficient"/>
+                                            <type v="mdl::color"/>
+                                            <value v="0;0;0"/>
+                                        </mdloperandvalue>
+                                    </members>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandstruct>
+                                <mdloperandvalue>
+                                    <name v="geometry"/>
+                                    <type v="mdl::call"/>
+                                    <value v="mdl::material_geometry(float3,float,float3)_61131862"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-16 -48 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518616"/>
+                    <connections>
+                        <connection>
+                            <identifier v="scattering"/>
+                            <connRef v="1262518635"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::material_surface(bsdf,material_emission)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="scattering"/>
+                                    <type v="mdl::bsdf"/>
+                                    <value v=""/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandstruct>
+                                    <name v="emission"/>
+                                    <type v="mdl::material_emission"/>
+                                    <members>
+                                        <mdloperandvalue>
+                                            <name v="emission"/>
+                                            <type v="mdl::edf"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="intensity"/>
+                                            <type v="mdl::color"/>
+                                            <value v="0;0;0"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="mode"/>
+                                            <type v="mdl::intensity_mode"/>
+                                            <value v="0"/>
+                                        </mdloperandvalue>
+                                    </members>
+                                </mdloperandstruct>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-176 -80 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518623"/>
+                    <connections>
+                        <connection>
+                            <identifier v="tint"/>
+                            <connRef v="1262518931"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::df::diffuse_reflection_bsdf(color,float,string)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="tint"/>
+                                    <type v="mdl::color"/>
+                                    <value v="0.212231;0.212231;0.212231"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="roughness"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="handle"/>
+                                    <type v="mdl::string"/>
+                                    <value v=""/>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-496 80 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518629"/>
+                    <connections>
+                        <connection>
+                            <identifier v="roughness_u"/>
+                            <connRef v="1262518728"/>
+                        </connection>
+                        <connection>
+                            <identifier v="roughness_v"/>
+                            <connRef v="1262518728"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path
+                                    v="mdl::df::microfacet_ggx_smith_bsdf(float,float,color,float3,::df::scatter_mode,string)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="roughness_u"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="roughness_v"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="tint"/>
+                                    <type v="mdl::color"/>
+                                    <value v="1;1;1"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="tangent_u"/>
+                                    <type v="mdl::call"/>
+                                    <value v="mdl::state::texture_tangent_u(int)_37258709"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="mode"/>
+                                    <type v="mdl::df::scatter_mode"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="handle"/>
+                                    <type v="mdl::string"/>
+                                    <value v=""/>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-496 -58.6666679 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518635"/>
+                    <connections>
+                        <connection>
+                            <identifier v="base"/>
+                            <connRef v="1262518623"/>
+                        </connection>
+                        <connection>
+                            <identifier v="layer"/>
+                            <connRef v="1262518629"/>
+                        </connection>
+                        <connection>
+                            <identifier v="normal_reflectivity"/>
+                            <connRef v="1262518665"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::df::custom_curve_layer(float,float,float,float,bsdf,bsdf,float3)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="normal_reflectivity"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="grazing_reflectivity"/>
+                                    <type v="mdl::float"/>
+                                    <value v="1"/>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="exponent"/>
+                                    <type v="mdl::float"/>
+                                    <value v="5"/>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="weight"/>
+                                    <type v="mdl::float"/>
+                                    <value v="1"/>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="layer"/>
+                                    <type v="mdl::bsdf"/>
+                                    <value v=""/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="base"/>
+                                    <type v="mdl::bsdf"/>
+                                    <value v=""/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="normal"/>
+                                    <type v="mdl::call"/>
+                                    <value v="mdl::state::normal()_10921490"/>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-336 -80 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518654"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_constant>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="specular_level"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0.5"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                            <is_exposed v="1"/>
+                            <type_modifier v="2"/>
+                            <mdl_annotations>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::description(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="description"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::display_name(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="name"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Specular Level"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::in_group(string,string,string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="group"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Specular"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subsubgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::usage(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="hint"/>
+                                            <type v="mdl::string"/>
+                                            <value v="specularLevel"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::gamma_type(mdl::tex::gamma_mode)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="type"/>
+                                            <type v="mdl::tex::gamma_mode"/>
+                                            <value v="1"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::hard_range(float,float)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="min"/>
+                                            <type v="mdl::float"/>
+                                            <value v="0"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="max"/>
+                                            <type v="mdl::float"/>
+                                            <value v="1"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::visible_by_default(bool)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="visible"/>
+                                            <type v="mdl::bool"/>
+                                            <value v="false"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                            </mdl_annotations>
+                        </mdl_node_implementation_constant>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-656 -208 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518660"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_constant>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="float"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0.0799999982"/>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                            <type_modifier v="2"/>
+                            <mdl_annotations>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::description(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="description"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::display_name(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="name"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::in_group(string,string,string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="group"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subsubgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::usage(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="hint"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::gamma_type(mdl::tex::gamma_mode)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="type"/>
+                                            <type v="mdl::tex::gamma_mode"/>
+                                            <value v="0"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                            </mdl_annotations>
+                        </mdl_node_implementation_constant>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-656 -336 0"/>
+                        <dockDistance v="160 128"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518665"/>
+                    <connections>
+                        <connection>
+                            <identifier v="x"/>
+                            <connRef v="1262518660"/>
+                        </connection>
+                        <connection>
+                            <identifier v="y"/>
+                            <connRef v="1262518654"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::operator*(float,float)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="x"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="y"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-496 -208 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518720"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_constant>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="roughness"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0.5"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                            <is_exposed v="1"/>
+                            <type_modifier v="2"/>
+                            <mdl_annotations>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::description(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="description"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::display_name(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="name"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Roughness"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::in_group(string,string,string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="group"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Roughness"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subsubgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::usage(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="hint"/>
+                                            <type v="mdl::string"/>
+                                            <value v="roughness"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::gamma_type(mdl::tex::gamma_mode)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="type"/>
+                                            <type v="mdl::tex::gamma_mode"/>
+                                            <value v="1"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::hard_range(float,float)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="min"/>
+                                            <type v="mdl::float"/>
+                                            <value v="0"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="max"/>
+                                            <type v="mdl::float"/>
+                                            <value v="1"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::visible_by_default(bool)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="visible"/>
+                                            <type v="mdl::bool"/>
+                                            <value v="true"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                            </mdl_annotations>
+                        </mdl_node_implementation_constant>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-784 -80 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518728"/>
+                    <connections>
+                        <connection>
+                            <identifier v="x"/>
+                            <connRef v="1262518720"/>
+                        </connection>
+                        <connection>
+                            <identifier v="y"/>
+                            <connRef v="1262518720"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::operator*(float,float)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="x"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="y"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-656 -80 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262518931"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_constant>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="base_color"/>
+                                    <type v="mdl::color"/>
+                                    <value v="0.212231;0.212231;0.212231"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                            <is_exposed v="1"/>
+                            <type_modifier v="2"/>
+                            <mdl_annotations>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::description(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="description"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::display_name(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="name"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Base Color"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::in_group(string,string,string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="group"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Base Color"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subsubgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::usage(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="hint"/>
+                                            <type v="mdl::string"/>
+                                            <value v="baseColor"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::gamma_type(mdl::tex::gamma_mode)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="type"/>
+                                            <type v="mdl::tex::gamma_mode"/>
+                                            <value v="2"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::visible_by_default(bool)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="visible"/>
+                                            <type v="mdl::bool"/>
+                                            <value v="true"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                            </mdl_annotations>
+                        </mdl_node_implementation_constant>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-656 80 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262519007"/>
+                    <connections>
+                        <connection>
+                            <identifier v="normal"/>
+                            <connRef v="1262519015"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::material_geometry(float3,float,float3)"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="displacement"/>
+                                    <type v="mdl::float3"/>
+                                    <value v="0;0;0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="cutout_opacity"/>
+                                    <type v="mdl::float"/>
+                                    <value v="1"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="normal"/>
+                                    <type v="mdl::call"/>
+                                    <value v="mdl::state::normal()_61477627"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-176 240 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262519015"/>
+                    <connections>
+                        <connection>
+                            <identifier v="normal"/>
+                            <connRef v="1262519037"/>
+                        </connection>
+                    </connections>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_constant>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="normal"/>
+                                    <type v="mdl::float3"/>
+                                    <value v="0;0;0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                            <is_exposed v="1"/>
+                            <type_modifier v="2"/>
+                            <mdl_annotations>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::description(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="description"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::display_name(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="name"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Normal"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::in_group(string,string,string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="group"/>
+                                            <type v="mdl::string"/>
+                                            <value v="Normal"/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                        <mdloperandvalue>
+                                            <name v="subsubgroup"/>
+                                            <type v="mdl::string"/>
+                                            <value v=""/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::anno::usage(string)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="hint"/>
+                                            <type v="mdl::string"/>
+                                            <value v="normal"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::gamma_type(mdl::tex::gamma_mode)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="type"/>
+                                            <type v="mdl::tex::gamma_mode"/>
+                                            <value v="1"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                                <mdl_annotation>
+                                    <mdl_path v="mdl::alg::base::annotations::visible_by_default(bool)"/>
+                                    <mdl_operands>
+                                        <mdloperandvalue>
+                                            <name v="visible"/>
+                                            <type v="mdl::bool"/>
+                                            <value v="true"/>
+                                        </mdloperandvalue>
+                                    </mdl_operands>
+                                </mdl_annotation>
+                            </mdl_annotations>
+                        </mdl_node_implementation_constant>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-336 240 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1262519037"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_instance>
+                            <mdl_path v="mdl::state::normal()"/>
+                            <mdl_operands/>
+                        </mdl_node_implementation_mdl_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-496 240 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1291991408"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_sbs_instance>
+                            <path v="pkg:///Flame?dependency=1277557344"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="$tiling"/>
+                                    <value>
+                                        <float1 v="1"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$directx_normal"/>
+                                    <value>
+                                        <bool v="1"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$use_physical_size"/>
+                                    <value>
+                                        <bool v="0"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$uvw"/>
+                                    <value>
+                                        <float1 v="0"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$normal_mapping_path"/>
+                                    <value>
+                                        <int1 v="0"/>
+                                    </value>
+                                </parameter>
+                            </parameters>
+                            <sbs_common_parameters>
+                                <parameter>
+                                    <name v="$outputsize"/>
+                                    <value>
+                                        <int2 v="9 9"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$pixelsize"/>
+                                    <value>
+                                        <float2 v="1 1"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$randomseed"/>
+                                    <value>
+                                        <int1 v="0"/>
+                                    </value>
+                                </parameter>
+                            </sbs_common_parameters>
+                            <sbs_parameters>
+                                <parameter>
+                                    <name v="$outputsize"/>
+                                    <value>
+                                        <int2 v="8 8"/>
+                                    </value>
+                                    <is_default_value v="1"/>
+                                </parameter>
+                                <parameter>
+                                    <name v="$pixelsize"/>
+                                    <value>
+                                        <float2 v="1 1"/>
+                                    </value>
+                                    <is_default_value v="1"/>
+                                </parameter>
+                                <parameter>
+                                    <name v="$randomseed"/>
+                                    <value>
+                                        <int1 v="0"/>
+                                    </value>
+                                    <is_default_value v="1"/>
+                                </parameter>
+                                <parameter>
+                                    <name v="NbIterations"/>
+                                    <value>
+                                        <int1 v="64"/>
+                                    </value>
+                                    <is_default_value v="1"/>
+                                </parameter>
+                            </sbs_parameters>
+                            <output_bridgings>
+                                <output_bridging>
+                                    <uid v="1291991409"/>
+                                    <identifier v="output"/>
+                                </output_bridging>
+                            </output_bridgings>
+                            <input_bridgings/>
+                        </mdl_node_implementation_sbs_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-816 336 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1291991446"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_sbs_instance>
+                            <path v="pkg:///aSubstanceWithSBSARDep?dependency=1277564244"/>
+                            <parameters>
+                                <parameter>
+                                    <name v="$tiling"/>
+                                    <value>
+                                        <float1 v="1"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$directx_normal"/>
+                                    <value>
+                                        <bool v="1"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$use_physical_size"/>
+                                    <value>
+                                        <bool v="0"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$uvw"/>
+                                    <value>
+                                        <float1 v="0"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$normal_mapping_path"/>
+                                    <value>
+                                        <int1 v="0"/>
+                                    </value>
+                                </parameter>
+                            </parameters>
+                            <sbs_common_parameters>
+                                <parameter>
+                                    <name v="$outputsize"/>
+                                    <value>
+                                        <int2 v="9 9"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$pixelsize"/>
+                                    <value>
+                                        <float2 v="1 1"/>
+                                    </value>
+                                </parameter>
+                                <parameter>
+                                    <name v="$randomseed"/>
+                                    <value>
+                                        <int1 v="0"/>
+                                    </value>
+                                </parameter>
+                            </sbs_common_parameters>
+                            <sbs_parameters/>
+                            <output_bridgings>
+                                <output_bridging>
+                                    <uid v="1291991447"/>
+                                    <identifier v="output"/>
+                                </output_bridging>
+                            </output_bridgings>
+                            <input_bridgings/>
+                        </mdl_node_implementation_sbs_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-720 432 0"/>
+                    </GUILayout>
+                </mdl_node>
+                <mdl_node>
+                    <uid v="1291991651"/>
+                    <mdl_node_implementation>
+                        <mdl_node_implementation_mdl_graph_instance>
+                            <path v="pkg:///MDL_Material?dependency=1291991494"/>
+                            <mdl_operands>
+                                <mdloperandvalue>
+                                    <name v="base_color"/>
+                                    <type v="mdl::color"/>
+                                    <value v="0.212231;0.212231;0.212231"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                        <is_default_value v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="normal"/>
+                                    <type v="mdl::float3"/>
+                                    <value v="0;0;0"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                        <is_default_value v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="roughness"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0.5"/>
+                                    <mdl_operand_meta_data>
+                                        <accept_connection v="1"/>
+                                        <is_default_value v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                                <mdloperandvalue>
+                                    <name v="specular_level"/>
+                                    <type v="mdl::float"/>
+                                    <value v="0.5"/>
+                                    <mdl_operand_meta_data>
+                                        <is_default_value v="1"/>
+                                    </mdl_operand_meta_data>
+                                </mdloperandvalue>
+                            </mdl_operands>
+                        </mdl_node_implementation_mdl_graph_instance>
+                    </mdl_node_implementation>
+                    <GUILayout>
+                        <gpos v="-816 112 0"/>
+                    </GUILayout>
+                </mdl_node>
+            </nodes>
+            <root_node_uid v="1262518608"/>
+            <inputs>
+                <mdl_input>
+                    <nodeuid v="1262518931"/>
+                </mdl_input>
+                <mdl_input>
+                    <nodeuid v="1262519015"/>
+                </mdl_input>
+                <mdl_input>
+                    <nodeuid v="1262518720"/>
+                </mdl_input>
+                <mdl_input>
+                    <nodeuid v="1262518654"/>
+                </mdl_input>
+            </inputs>
+        </mdl_graph>
+    </content>
+</package>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<context>
+		<url_aliases/>
+	</context>
+	<fct_args>
+		<arg name="aTemplateSbsPath" value="sample/TemplateGraphUdims.sbs"/>
+		<arg name="aDestSbsPath" value="sample/resultDemoUdim.sbs"/>
+		<arg name="aMeshPath" value="sample/Models/scifi_container_low.fbx"/>
+		<arg name="aUdimList" value="1001,1002"/>
+		<arg name="aOutputSize" value="10"/>
+		<arg name="aOutputBakingPath" value="sample/UdimsOutput/Baking"/>
+		<arg name="aOutputRenderPath" value="sample/UdimsOutput/Render"/>
+	</fct_args>
+</root>

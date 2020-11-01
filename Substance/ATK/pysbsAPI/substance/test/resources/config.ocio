@@ -1,0 +1,148 @@
+ocio_profile_version: 1
+
+search_path: luts
+strictparsing: true
+luma: [0.2126, 0.7152, 0.0722]
+
+roles:
+  color_picking: sRGB
+  data: Raw
+  default: Raw
+  matte_paint: sRGB
+  reference: Linear
+  scene_linear: Linear
+  texture_paint: sRGB
+
+displays:
+  Default:
+    - !<View> {name: sRGB, colorspace: sRGB}
+    - !<View> {name: ACES sRGB, colorspace: ACES sRGB}
+    - !<View> {name: Display P3, colorspace: Display P3}
+    - !<View> {name: Rec709, colorspace: Rec709}
+    - !<View> {name: Rec2020, colorspace: Rec2020}
+    - !<View> {name: False Color, colorspace: False Color}
+    - !<View> {name: Raw, colorspace: Raw}
+
+active_displays: [Default]
+active_views: [sRGB, ACES sRGB, Display P3, Rec709, Rec2020, False Color, Raw]
+
+colorspaces:
+  - !<ColorSpace>
+    name: Linear
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Linear RGB color space with sRGB primaries and D65 whitepoint
+    isdata: false
+    allocation: lg2
+    allocationvars: [-15, 6]
+
+  - !<ColorSpace>
+    name: sRGB
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Standard RGB display color space
+    isdata: false
+    allocation: uniform
+    allocationvars: [0, 1.125]
+    to_reference: !<FileTransform> {src: srgb.spi1d, interpolation: linear}
+
+  - !<ColorSpace>
+    name: Rec709
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Standard color space for high definition TV (ITU-R BT.709)
+    isdata: false
+    allocation: uniform
+    allocationvars: [0, 1.125]
+    to_reference: !<FileTransform> {src: rec709.spi1d, interpolation: linear}
+
+  - !<ColorSpace>
+    name: Rec2020
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Standard color space for ultra high definition TV (ITU-R BT.2020)
+    isdata: false
+    allocation: uniform
+    allocationvars: [0, 1.125]
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: rec2020.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [1.6603, -0.58757, -0.0728901, 0, -0.124376, 1.13283, -0.00835974, 0, -0.0181123, -0.100584, 1.11877, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: ACES - ACEScg
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      ACES computer graphics color space
+    isdata: false
+    allocation: lg2
+    allocationvars: [-15, 6]
+    to_reference: !<MatrixTransform> {matrix: [1.7049, -0.62416, -0.0809141, 0, -0.129553, 1.13837, -0.00876801, 0, -0.0241261, -0.124633, 1.14882, 0, 0, 0, 0, 1]}
+    from_reference: !<MatrixTransform> {matrix: [0.613118, 0.341182, 0.0457873, 0, 0.0699341, 0.918103, 0.0119328, 0, 0.020463, 0.106769, 0.872716, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: Display P3
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Display P3
+    isdata: false
+    allocation: uniform
+    allocationvars: [0, 1.125]
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: srgb.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [1.2248, -0.224911, -4.75721e-05, 0, -0.0419281, 1.04203, -2.6429e-06, 0, -0.0196088, -0.0786321, 1.09832, 0, 0, 0, 0, 1]}
+
+  - !<ColorSpace>
+    name: ACES sRGB
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      ACES Output sRGB color space
+    isdata: false
+    allocation: lg2
+    allocationvars: [-8, 6, 0.004]
+    from_reference: !<GroupTransform>
+      children:
+        - !<MatrixTransform> {matrix: [0.613118, 0.341182, 0.0457873, 0, 0.0699341, 0.918103, 0.0119328, 0, 0.020463, 0.106769, 0.872716, 0, 0, 0, 0, 1]}
+        - !<FileTransform> {src: rtt_and_odt_fit.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [1.7049, -0.62416, -0.0809141, 0, -0.129553, 1.13837, -0.00876801, 0, -0.0241261, -0.124633, 1.14882, 0, 0, 0, 0, 1]}
+        - !<FileTransform> {src: srgb.spi1d, interpolation: linear, direction: inverse}
+
+  - !<ColorSpace>
+    name: False Color
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      False color visualization
+    isdata: false
+    allocation: lg2
+    allocationvars: [-8, 6, 0.004]
+    from_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: logScale.spi1d, interpolation: linear}
+        - !<FileTransform> {src: falseColor.spi3d, interpolation: linear}
+
+  - !<ColorSpace>
+    name: Raw
+    family: ""
+    equalitygroup: ""
+    bitdepth: 32f
+    description: |
+      Raw Data
+    isdata: true
+    allocation: uniform

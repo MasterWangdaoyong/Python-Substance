@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<context>
+		<url_aliases/>
+	</context>
+	<fct_args>
+		<arg name="aFileAbsPath" value="sample/ReactionDiffusionDendritic.sbs"/>
+		<arg name="aDestFileAbsPath" value="sample/resultReactionDiffusionDendritic.sbs"/>
+		<arg name="aGraph" value="ReactionDiffusionDendritic"/>
+		<arg name="aNodesToDuplicate" value="['1267037390']"/>
+		<arg name="aNbIterations" value="200"/>
+		<arg name="aForceRandomSeed" value="True"/>
+		<arg name="aIncrementIteration" value="True"/>
+	</fct_args>
+</root>

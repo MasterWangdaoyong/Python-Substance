@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<context>
+		<url_aliases/>
+	</context>
+	<fct_args>
+		<arg name="aFileAbsPath" value="sample/Flame.sbs"/>
+		<arg name="aDestFileAbsPath" value="sample/resultDemoIterationFlame.sbs"/>
+	</fct_args>
+</root>

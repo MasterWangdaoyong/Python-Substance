@@ -1,0 +1,13 @@
+python demohelloworld.py
+python demos.py -fct: demoReadWriteSBS -args: "sample/argsDemoReadWrite.xml"
+python demos.py -fct: demoCreation -args: "sample/argsDemoCreation.xml"
+python demos.py -fct: demoCreationMDL -args: "sample/argsDemoCreationMDL.xml"
+python demos.py -fct: demoMassiveModification -args: "sample/argsDemoMassiveModification.xml"
+python demos.py -fct: demoIteration -args: "sample/argsDemoIteration.xml"
+python demos.py -fct: demoIterationFlame -args: "sample/argsDemoIterationFlame.xml"
+python demos.py -fct: demoIterationPixProc -args: "sample/argsDemoIterationPixProc.xml"
+python demos.py -fct: demoBuildSBSFromPainterBitmaps -args: "sample/argsDemoBuildSBSFromPainterBitmaps.xml"
+python demos.py -fct: demoBakingParameters -args: "sample/argsDemoBakingParameters.xml"
+python demos.py -fct: demoExportWithDependencies -args: "sample/argsDemoExportWithDependencies.xml"
+
+python -m unittest discover
