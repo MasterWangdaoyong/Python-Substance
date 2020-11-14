@@ -8,12 +8,8 @@
 - Learn 章节程序跟写
 - Show 图片库存
 
-![MainCustom.jpg](https://github.com/MasterWangdaoyong/My-C--Primer-Plus/blob/master/Show/MainCustom.jpg)
+SBSAR 在unity中的表现
+![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Substance/GifShow/test_sbsar_20170501.gif)
 
-![BookTime.jpg](https://github.com/MasterWangdaoyong/My-C--Primer-Plus/blob/master/Show/BookTime.jpg)
-
-![Book.jpg](https://github.com/MasterWangdaoyong/My-C--Primer-Plus/blob/master/Show/Book.jpg)
-
-![2018year3m.jpg](https://github.com/MasterWangdaoyong/My-C--Primer-Plus/blob/master/Show/2018year3m.jpg)
-
-![Booklearn.jpg](https://github.com/MasterWangdaoyong/My-C--Primer-Plus/blob/master/Show/Booklearn.jpg)
+Substance Automation Toolkit  python 批量更新
+![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Substance/GifShow/test_SubstanceAutomationToolkitZ_updata_20201010.gif)
