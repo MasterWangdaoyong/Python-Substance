@@ -1,4 +1,8 @@
 # Substance 相关
+
+- [我的博客 https://www.zhihu.com/people/wangTimemachine](https://www.zhihu.com/people/wangTimemachine)
+- [我的A站 https://www.artstation.com/jianpingwang](https://www.artstation.com/jianpingwang)
+
 SBSAR 在unity中的表现
 ![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Substance/GifShow/test_sbsar_20170501.gif)
 
