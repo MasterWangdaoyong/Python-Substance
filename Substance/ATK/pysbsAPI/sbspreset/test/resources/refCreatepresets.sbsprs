@@ -1,7 +1,0 @@
-<sbspresets count="1" formatversion="">
- <sbspreset description="A Test Preset" label="test1" pkgurl="DummyGraph" usertags="tag1;tag2">
-  <presetinput identifier="input1" type="8" uid="1" value="1 2"/>
-  <presetinput identifier="input2" type="4" uid="2" value="1"/>
- </sbspreset>
-</sbspresets>
-

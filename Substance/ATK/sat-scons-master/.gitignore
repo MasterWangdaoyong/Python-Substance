@@ -1,7 +1,0 @@
-**/.autosave
-.idea/*
-appleseed/
-output/*
-temp/*
-*.pyc
-.sconsign.dblite
