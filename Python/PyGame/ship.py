@@ -11,7 +11,7 @@ class Ship():
         self.screen = screen
         self.ai_settings = ai_settings
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load(r'F:\Main_Project\Python\PyGame\images\ship.bmp') #加载图像
+        self.image = pygame.image.load(r'G:\Python-Substance\Python\PyGame\images\ship.bmp') #加载图像
         # 如果报错，需要给绝对路径
         self.rect = self.image.get_rect()   #获取贴图属性 矩形高效
         self.screen_rect = screen.get_rect()    #获取画布属性
@@ -23,6 +23,10 @@ class Ship():
 
         self.moving_right = False #右移动标志
         self.moving_left = False #左移动
+
+    def center_ship(self):
+        """让飞船在屏幕上居中"""
+        self.center = self.screen_rect.centerx        
 
     def update(self):
         """根据移动标志调整飞船的位置"""
