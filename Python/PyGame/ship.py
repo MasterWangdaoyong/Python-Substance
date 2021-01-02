@@ -2,11 +2,14 @@
 # 功能：12.4.1 创建Ship类
 
 import pygame
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite): #功能继承
 
     def __init__(self, ai_settings, screen):
         """初始化飞船并设置其初始位置"""
+
+        super(Ship, self).__init__() #super()的调用
         
         self.screen = screen
         self.ai_settings = ai_settings
