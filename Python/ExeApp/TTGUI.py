@@ -1,25 +1,28 @@
-from tkinter import *
-from tkinter import ttk
-import random
+
 
 # https://www.jianshu.com/p/91844c5bca78
 # https://www.jianshu.com/p/a54a5eab7e17
 # https://www.liaoxuefeng.com/wiki/1016959663602400/1017786914566560
 
-root = Tk() #初始化
-root.title('TimeM:172099994@qq.com') #项目名
-# root.resizable(width=False, height=False)
-# root.config(background='#EEE')
-root.geometry('300x150')
 
-def gen():
-    val.set(repr(random.random()))
+atotal = 32  # 总文章数量
+cookiestr = ''  # cookie全局变量
 
-val = StringVar()
-val.set('3.14')
-ttk.Frame(root, height=20).grid()
-lb=ttk.Entry(root,textvariable=val).grid(row=1, column=1, pady=10, padx=10,ipady=5,sticky='nsew')
-bt = ttk.Button(root, text='Random', width=20, command=gen).grid(
-    row=2, column=1, ipady=10, ipadx=10, sticky=E)
 
-root.mainloop() #启动
+def genInfoStr():  # 拼接信息字符串
+    global atotal
+    global afini
+    infoStr = '正在获取('+str(afini)+'/'+str(atotal)+'):'
+    per = int(atotal/15)
+    fi = int(afini/per)
+    for _ in range(fi):
+        infoStr += '■'
+    for _ in range(15-fi):
+        infoStr += '□'
+    return infoStr
+
+
+def getAll(cookieStr):  # 获取全部
+    t = Thread(target=getArticles, args=(cookiestr,))  # 多线程，避免锁死界面
+    t.start()
+    return 'getAll OK!'
