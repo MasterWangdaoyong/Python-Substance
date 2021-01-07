@@ -4,6 +4,8 @@
 
 from tkinter import *
 from tkinter import ttk
+# from PIL import Image
+# import os
 
 # 创建窗体
 mainUI = Tk()
@@ -14,12 +16,21 @@ mainUI.geometry('500x240')
 
 # 启动获取动作
 def run():
-    # getAll(cookieStr)
+    # getAll(cookieStr) 
+    # for infile in filelist:
+    # outfile = os.path.splitext(infile)[0] + ".jpg"
+    # if infile != outfile:
+    #     try:
+    #     Image.open(infile).save(outfile)
+    #     except IOError:
+    #     print "cannot convert", infile
+
+
     print ("hi there, everyone!")
 
 # 路径选择
-pathA = StringVar()
-pathA.set('路径选择')
+# pathA = StringVar()
+pathA = '路径选择'
 iptCookie = ttk.Entry(mainUI, textvariable=pathA)
 iptCookie.grid(row = 0,column=1, ipady=20, sticky='WE')
 
