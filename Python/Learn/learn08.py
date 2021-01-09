@@ -40,7 +40,7 @@
 # describe_pet( pet_name = 'bbbbbbbb')
 # describe_pet( 'aaaaaaaaaaaaa')
 
-# 8.2.4  等效的函数调用
+# 8.2.4  等效的函数调用  #不是以位置，来决定，而是以变量名来决定 输入顺序
 # def describe_pet( pet_name, animal_type = 'dog'):
 #     """显示宠物的信息"""
 #     print("\nI have a " + animal_type + ".")
@@ -48,8 +48,8 @@
 # describe_pet( 'willie')
 # describe_pet( pet_name = 'willie')
 # describe_pet('harry', 'hamster')
-# describe_pet(pet_name = 'harry', animal_type = 'hamster')
-# describe_pet(animal_type = 'hamster', pet_name = 'harry')
+# describe_pet(pet_name = 'harry', animal_type = 'hamster') #不是以位置，来决定，而是以变量名来决定
+# describe_pet(animal_type = 'hamster', pet_name = 'harry') #不是以位置，来决定，而是以变量名来决定
 
 # 8.3  返回值
 # 8.3.1  返回简单值
@@ -196,7 +196,7 @@
 # B.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 
 # 8.6.5  导入模块中的所有函数  #虽然简单明了  但不怎么推荐
-# from pizza import *  #*号导入脚本内的所有函数 后面的调用就直接写函数名称即可 简短的脚本使用简单明了  大型长文件时就不太好了
+# from pizza import *  # *号导入脚本内的所有函数 后面的调用就直接写函数名称即可 简短的脚本使用简单明了  大型长文件时就不太好了
 # make_pizza(16, 'pepperoni')   #可能会存在同样的函数名称  
 # make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese'
 
