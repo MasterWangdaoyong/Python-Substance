@@ -10,6 +10,10 @@ from PIL import ImageFilter
 from PIL import ImageEnhance
 import os
 
+from tkinter import ttk, Tk
+from tkinter import N, W, E, S
+from tkinter import StringVar
+
 
 
 # # class textureCombine():
@@ -414,9 +418,7 @@ import os
 #         #         except IOError:
 #         #             print ("cannot convert", infile)
 
-# from tkinter import ttk, Tk
-# from tkinter import N, W, E, S
-# from tkinter import StringVar
+
 
 # // https://www.jianshu.com/p/54cdeb2e52da  #注意 这个set 功能 self.var.set("看这里！")
 
@@ -440,31 +442,31 @@ class App(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
+        self.datapathshow = StringVar() #注意声明变量时的  前后位置
+        self.savedatapathshow = StringVar()
         self.datapath = 'StringVar()' #指定类型
-        self.data_path()    
+        self.data_path()      
         self.save_datapath = 'StringVar()' 
         self.save_data_path()   
         self.run()   
-        self.look()
         self._layout()
 
     def data_path(self):
         self.hi_there = ttk.Button(self)
         self.hi_there["text"] = "获取资源目录"
         self.hi_there["command"] = self.get_data_path
-        self.print_label = ttk.Label(textvariable=self.datapath)
+        self.print_label = ttk.Label(textvariable=self.datapathshow)
 
     def save_data_path(self):
         self.hi_there2 = ttk.Button(self)
         self.hi_there2["text"] = "存放目录"
         self.hi_there2["command"] = self.get_save_datapath
-        self.print_label2 = ttk.Label(textvariable=self.save_datapath)     
+        self.print_labe2 = ttk.Label(textvariable=self.savedatapathshow)   
 
     def run(self):
         self.hi_there3 = ttk.Button(self)
         self.hi_there3["text"] = "开始执行合并"
-        self.hi_there3["command"] = self.get_run
-        self.print_label3 = ttk.Label(textvariable=self.save_datapath)        
+        self.hi_there3["command"] = self.get_run       
 
     def get_run(self):
         """启动获取动作"""
@@ -489,32 +491,32 @@ class App(ttk.Frame):
         texture_name = 'T2.png'
         texture_mode = 'png'
         newimg.save(self.save_datapath + '/' + texture_name, texture_mode) #Folderpath为路径， ‘/’文件夹目录去除，不然会添加上文件夹名称在图片名上， 'jpeg'为格式   
-        print("图像已合并为：" + texture_name + "格式为：" + texture_mode)
+        print("图像已合并为：" + texture_name + " 格式为：" + texture_mode)
         print("-------------图像合并完成-------------")
 
     def _layout(self):
         self.master.title("简单的 GUI") # 标题
-        self.master.maxsize(1000, 400) # 尺寸
-        self['padding'] = ("3 3 12 12")
+        self.master.geometry('1024x512+10+10') # 尺寸
         self.grid()
-        self.hi_there.grid(column=0, row=0, sticky=(N, W, E, S))
-        self.print_label.grid(column=0, row=1)
-        self.hi_there2.grid(column=0, row=2, sticky=(N, W, E, S))
-        self.print_label2.grid(column=1, row=2)
-        self.hi_there3.grid(column=0, row=3, sticky=(N, W, E, S))
-        self.print_label3.grid(column=2, row=3)
+        
+        self.hi_there.grid(row=0, column=0,  sticky=(N, W, E, S))
+        self.print_label.grid(row=0, column=1, sticky=(N))
+
+        self.hi_there2.grid(row=1, column=0, sticky=(N, W, E, S))
+        self.print_labe2.grid(row=1, column=1, sticky=(E))
+
+        self.hi_there3.grid(row=2, column=0)
 
     def get_data_path(self):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
+        self.datapathshow.set(self.datapath)
 
     def get_save_datapath(self):
         self.save_datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
+        self.savedatapathshow.set(self.save_datapath)
 
-    def look(self):
-        print("资源目录")
-        print(self.datapath)
-        print("存放目录")
-        print(self.save_datapath)        
+
+
 
 root = Tk()
 app = App(root)
