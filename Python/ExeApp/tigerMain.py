@@ -418,40 +418,104 @@ import os
 # from tkinter import N, W, E, S
 # from tkinter import StringVar
 
-# // https://www.jianshu.com/p/54cdeb2e52da
-# class App(ttk.Frame):
-#     def __init__(self, master=None):
-#         super().__init__(master)
-#         self.master = master
-#         self.var = StringVar()
-#         self.create_widgets()
-#         self.look()
-#         self._layout()
+# // https://www.jianshu.com/p/54cdeb2e52da  #注意 这个set 功能 self.var.set("看这里！")
 
-#     def create_widgets(self):
-#         self.hi_there = ttk.Button(self)
-#         self.hi_there["text"] = "欢迎进入 GUI 世界\n(点我)"
-#         self.hi_there["command"] = self.say_hi
-#         self.print_label = ttk.Label(textvariable=self.var)
-#         self.quit = ttk.Button(self, text="QUIT")
-#         self.quit["command"] = self.master.destroy
-        
-        
-#     def _layout(self):
-#         self.master.title("简单的 GUI") # 添加标题
-#         self.master.maxsize(1000, 400) # 改变窗体尺寸
-#         self['padding'] = ("3 3 12 12")
-#         self.grid()
-#         self.hi_there.grid(column=0, row=0, sticky=(N, W, E, S))
-#         self.print_label.grid(column=0, row=1)
-#         self.quit.grid(column=1, row=1)
+def get_filelist(dir, Filelist):     
+    """遍历文件夹内的文件"""
+    newDir = dir
+    if os.path.isfile(dir): 
+        Filelist.append(dir) 
+        # # 若只是要返回文件文，使用这个 
+        # Filelist.append(os.path.basename(dir)) 
+    elif os.path.isdir(dir): 
+        for s in os.listdir(dir): 
+            # 如果需要忽略某些文件夹，使用以下代码 
+            #if s == "xxx": 
+                #continue 
+            newDir=os.path.join(dir, s) 
+            get_filelist(newDir, Filelist) 
+    return Filelist  
 
-#     def say_hi(self):
-#         self.var.set(filedialog.askdirectory()) #弹开面板，选择获取文件夹，得到路径)
+class App(ttk.Frame):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.master = master
+        self.datapath = 'StringVar()' #指定类型
+        self.data_path()    
+        self.save_datapath = 'StringVar()' 
+        self.save_data_path()   
+        self.run()   
+        self.look()
+        self._layout()
 
-#     def look(self):
-#         print(self.var)
+    def data_path(self):
+        self.hi_there = ttk.Button(self)
+        self.hi_there["text"] = "获取资源目录"
+        self.hi_there["command"] = self.get_data_path
+        self.print_label = ttk.Label(textvariable=self.datapath)
 
-# root = Tk()
-# app = App(root)
-# app.mainloop()
+    def save_data_path(self):
+        self.hi_there2 = ttk.Button(self)
+        self.hi_there2["text"] = "存放目录"
+        self.hi_there2["command"] = self.get_save_datapath
+        self.print_label2 = ttk.Label(textvariable=self.save_datapath)     
+
+    def run(self):
+        self.hi_there3 = ttk.Button(self)
+        self.hi_there3["text"] = "开始执行合并"
+        self.hi_there3["command"] = self.get_run
+        self.print_label3 = ttk.Label(textvariable=self.save_datapath)        
+
+    def get_run(self):
+        """启动获取动作"""
+        print ("-------------程序开始运行-------------")
+        list = get_filelist(self.datapath, []) #遍历文件夹，得到文件      
+        print('文件夹内包含贴图总数量：' + str(len(list))) #得到文件数量
+        newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
+        a = 0
+        for e in list:        
+            print(e)
+            img = Image.open(e) #读取图像
+            if a == 0:
+                newimg.paste(img, (0,0))    #转填充图像，以512大小为例，00为左上，256，256为中心
+            elif a == 1:
+                newimg.paste(img, (0,256))
+            elif a == 2:
+                newimg.paste(img, (256,0))
+            else :
+                newimg.paste(img, (256,256))
+            a += 1
+        #新建图像，用与合并
+        texture_name = 'T2.png'
+        texture_mode = 'png'
+        newimg.save(self.save_datapath + '/' + texture_name, texture_mode) #Folderpath为路径， ‘/’文件夹目录去除，不然会添加上文件夹名称在图片名上， 'jpeg'为格式   
+        print("图像已合并为：" + texture_name + "格式为：" + texture_mode)
+        print("-------------图像合并完成-------------")
+
+    def _layout(self):
+        self.master.title("简单的 GUI") # 标题
+        self.master.maxsize(1000, 400) # 尺寸
+        self['padding'] = ("3 3 12 12")
+        self.grid()
+        self.hi_there.grid(column=0, row=0, sticky=(N, W, E, S))
+        self.print_label.grid(column=0, row=1)
+        self.hi_there2.grid(column=0, row=2, sticky=(N, W, E, S))
+        self.print_label2.grid(column=1, row=2)
+        self.hi_there3.grid(column=0, row=3, sticky=(N, W, E, S))
+        self.print_label3.grid(column=2, row=3)
+
+    def get_data_path(self):
+        self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
+
+    def get_save_datapath(self):
+        self.save_datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
+
+    def look(self):
+        print("资源目录")
+        print(self.datapath)
+        print("存放目录")
+        print(self.save_datapath)        
+
+root = Tk()
+app = App(root)
+app.mainloop()
