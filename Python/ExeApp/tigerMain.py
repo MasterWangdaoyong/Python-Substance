@@ -444,10 +444,15 @@ class App(ttk.Frame):
         self.master = master
         self.datapathshow = StringVar() #注意声明变量时的  前后位置
         self.savedatapathshow = StringVar()
+        
         self.datapath = 'StringVar()' #指定类型
-        self.data_path()      
+        self.data_path()
         self.save_datapath = 'StringVar()' 
-        self.save_data_path()   
+        self.save_data_path()
+
+        # self.imageshow()
+
+
         self.run()   
         self._layout()
 
@@ -466,20 +471,28 @@ class App(ttk.Frame):
     def run(self):
         self.hi_there3 = ttk.Button(self)
         self.hi_there3["text"] = "开始执行合并"
-        self.hi_there3["command"] = self.get_run       
+        self.hi_there3["command"] = self.get_run
+
+    # def imageshow(self):
+    #     self.hi_there4 = ttk.PhotoImage(r'G:\Python-Substance\Python\PyGame\images\alien.bmp')
+    #     # image_file = tk.PhotoImage(file='pic.gif')  # 图片位置（相对路径，与.py文件同一文件夹下，也可以用绝对路径，需要给定图片具体绝对路径）
+    #     # image = canvas.create_image(250, 0, anchor='n',image=image_file) 
+    #     self.hi_there4.grid(row=2, column=0,   padx=10, pady=10, ipadx=10, ipady=10)        
 
     def get_run(self):
         """启动获取动作"""
         print ("-------------程序开始运行-------------")
-        list = get_filelist(self.datapath, []) #遍历文件夹，得到文件      
+        list = get_filelist(self.datapath, []) #遍历文件夹，得到文件
         print('文件夹内包含贴图总数量：' + str(len(list))) #得到文件数量
         newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
         a = 0
-        for e in list:        
+        for e in list:
             print(e)
             img = Image.open(e) #读取图像
             if a == 0:
                 newimg.paste(img, (0,0))    #转填充图像，以512大小为例，00为左上，256，256为中心
+                self.print_label = ttk.Label(textvariable=self.datapathshow)
+                self.print_label.grid(row=0, column=1, sticky=(N))
             elif a == 1:
                 newimg.paste(img, (0,256))
             elif a == 2:
@@ -490,7 +503,7 @@ class App(ttk.Frame):
         #新建图像，用与合并
         texture_name = 'T2.png'
         texture_mode = 'png'
-        newimg.save(self.save_datapath + '/' + texture_name, texture_mode) #Folderpath为路径， ‘/’文件夹目录去除，不然会添加上文件夹名称在图片名上， 'jpeg'为格式   
+        newimg.save(self.save_datapath + '/' + texture_name, texture_mode) #Folderpath为路径， ‘/’文件夹目录去除，不然会添加上文件夹名称在图片名上， 'jpeg'为格式
         print("图像已合并为：" + texture_name + " 格式为：" + texture_mode)
         print("-------------图像合并完成-------------")
 
@@ -499,13 +512,16 @@ class App(ttk.Frame):
         self.master.geometry('1024x512+10+10') # 尺寸
         self.grid()
         
-        self.hi_there.grid(row=0, column=0,  sticky=(N, W, E, S))
-        self.print_label.grid(row=0, column=1, sticky=(N))
+        self.hi_there.grid(row=0, column=0,  padx=10, pady=10, ipadx=10, ipady=10) 
+        self.print_label.grid(row=0, column=1,  padx=10, pady=10, ipadx=10, ipady=10)
+        self.hi_there2.grid(row=1, column=0, padx=10, pady=10, ipadx=10, ipady=10)
+        self.print_labe2.grid(row=1, column=1,  padx=10, pady=10, ipadx=10, ipady=10)
+        self.hi_there3.grid(row=2, column=0,   padx=10, pady=10, ipadx=10, ipady=10)
+        #         self.hi_there2.grid(row=1, column=0, sticky=(N, W, E, S))
+        # self.print_labe2.grid(row=1, column=1, sticky=(E))
 
-        self.hi_there2.grid(row=1, column=0, sticky=(N, W, E, S))
-        self.print_labe2.grid(row=1, column=1, sticky=(E))
-
-        self.hi_there3.grid(row=2, column=0)
+        # self.image_file = ttk.PhotoImage(self)  # 图片位置（相对路径，与.py文件同一文件夹下，也可以用绝对路径，需要给定图片具体绝对路径）
+        # self.image = ttk.canvas.create_image(250, 0, anchor='n',image=self.image_file)  
 
     def get_data_path(self):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
