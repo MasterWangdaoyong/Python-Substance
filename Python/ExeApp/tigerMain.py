@@ -40,16 +40,16 @@ class App(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
+
         self.datapathshow = StringVar() #注意声明变量时的  前后位置
         self.savedatapathshow = StringVar()
-        
+        self.savedatapathshowA = StringVar() #1 变量声明         
         self.datapath = 'StringVar()' #指定类型
         self.data_path()
         self.save_datapath = 'StringVar()' 
         self.save_data_path()
 
         self.imageshow()
-
 
         self.run()   
         self._layout()
@@ -98,15 +98,10 @@ class App(ttk.Frame):
         #新建图像，用与合并
         texture_name = 'T2.png'
         texture_mode = 'png'
-        newimg.save(self.save_datapath + '/' + texture_name, texture_mode) #Folderpath为路径， ‘/’文件夹目录去除，不然会添加上文件夹名称在图片名上， 'jpeg'为格式
-        
-        # self.canvas=tk.Canvas(root,height=400,width=400)   #画布长款定为400x400
-        # # self.canvas.pack()
-        # global saveimg
-        # saveimg=ImageTk.PhotoImage(newimg)    #在canvas中展示图片
-        # self.canvas.create_image(200,200,anchor='center',image=saveimg)   #以中小点为锚点
-        self.print_label = ttk.Label(textvariable=self.savedatapathshow)
-        self.print_label.grid(row=3, column=1, sticky=(N))
+        newimg.save(self.save_datapath + '/' + texture_name, texture_mode) #Folderpath为路径， ‘/’文件夹目录去除，不然会添加上文件夹名称在图片名上， 'jpeg'为格式  
+        self.savedatapathshowA.set(texture_name)    # 2 StringVar 转换到 str格式
+        self.print_label = ttk.Label(textvariable=self.savedatapathshowA) #3 调取变量
+        self.print_label.grid(row=3, column=1, sticky=(N)) # 4 显示标签
 
         print("图像已合并为：" + texture_name + " 格式为：" + texture_mode)
         print("-------------图像合并完成-------------")
@@ -131,7 +126,28 @@ class App(ttk.Frame):
 
     def get_data_path(self):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
-        self.datapathshow.set(self.datapath)
+
+        canvas=tk.Canvas(self.master ,height=400,width=400)
+        canvas.grid(row=4,column=4)
+
+        list = get_filelist(self.datapath, [])
+        print('文件夹内包含贴图总数量：' + str(len(list))) #得到文件数量
+        # newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
+        a = 0
+        for e in list:
+            print(e)
+            img = Image.open(e) #读取图像  
+
+            
+            a += 1
+
+
+        global imga   #要申明全局变量我猜测是调用了canvas
+        re_image = resize(img)  # 调用函数
+        imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
+        canvas.create_image(500, 500, image=imga)
+
+        self.datapathshow.set(self.datapath)  #把目录显示出来
 
     def get_save_datapath(self):
         self.save_datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
@@ -139,7 +155,17 @@ class App(ttk.Frame):
 
 
 
+def resize(image):
+    w, h = image.size
+    mlength = max(w, h)  # 找出最大的边
+    mul = 400 / mlength  # 缩放倍数
+    w1 = int(w * mul)  # 重新获得高和宽
+    h1 = int(h * mul)
+    return image.resize((w1, h1))    
+
 
 root = Tk()
+
+
 app = App(root)
 app.mainloop()
