@@ -54,6 +54,8 @@ class App(ttk.Frame):
         self.run()   
         self._layout()
 
+
+
     def data_path(self):
         self.hi_there = ttk.Button(self)
         self.hi_there["text"] = "获取资源目录"
@@ -109,7 +111,7 @@ class App(ttk.Frame):
 
 
     def _layout(self):
-        self.master.title("简单的 GUI") # 标题
+        self.master.title("TimeMachine") # 标题
         self.master.geometry('1024x512+50+50') # 尺寸
         self.grid()
         
@@ -127,26 +129,62 @@ class App(ttk.Frame):
     def get_data_path(self):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
 
-        canvas=tk.Canvas(self.master ,height=400,width=400)
-        canvas.grid(row=4,column=4)
-
         list = get_filelist(self.datapath, [])
         print('文件夹内包含贴图总数量：' + str(len(list))) #得到文件数量
         # newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
+
+        # responses = {} #创建字典
         a = 0
         for e in list:
             print(e)
-            img = Image.open(e) #读取图像  
+            img = Image.open(e) #读取图像
 
-            
+            # name = str(e)
+            # b = img
+            # responses[name] = b
+
+            # canvas[a]=tk.Canvas(self.master ,height=size, width=size, highlightthickness=0, bg='#ff0000')
+            # canvas[a].grid(row=5, column=1+a, sticky=tk.W, columnspan=3)
+
+            size = 128
+            global imga   #要申明全局变量我猜测是调用了canvas
+            re_image = resize(img)  # 调用函数
+            imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
+            print("---------------imga")
+            print(imga)
+            canvas = tk.Canvas(self.master, width=size, height=size, bg = '#262626')
+            canvas.create_image(size/2+1, size/2+1, image=imga) #中心填充
+            canvas.grid(row=5, column=a)
+
+
             a += 1
 
+        # https://bbs.csdn.net/topics/391902047?page=1
+        # from tkinter import *
+        
+        # root = Tk()
+        # cv = Canvas(root, bg = 'white', width = 500, height = 650) 
+        # rt = cv.create_rectangle(10,10,110,110,outline='red',stipple='gray12',fill='green')
+        # imgs= [PhotoImage(file='/tmp/'+str(i)+'.gif') for i in range(3)]
+        # for img in imgs:
+        #   cv.create_image((20*i,200*i),image=img) 
+        # cv.pack()
+        # root.mainloop() 
+            
+            
 
-        global imga   #要申明全局变量我猜测是调用了canvas
-        re_image = resize(img)  # 调用函数
-        imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
-        canvas.create_image(500, 500, image=imga)
-
+        # size = 1024
+        # canvas[a]=tk.Canvas(self.master ,height=size, width=size, highlightthickness=0, bg='#ff0000')
+        # canvas[a].grid(row=5, column=1+a, sticky=tk.W, columnspan=3)
+        # global imga   #要申明全局变量我猜测是调用了canvas
+        # re_image = resize(img)  # 调用函数
+        # imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
+        # canvas[a].create_image(256, 256, image=imga)
+            
+            
+        # for name, b in responses.items():
+        #     print(name)
+        #     print(b)
         self.datapathshow.set(self.datapath)  #把目录显示出来
 
     def get_save_datapath(self):
@@ -156,12 +194,13 @@ class App(ttk.Frame):
 
 
 def resize(image):
-    w, h = image.size
-    mlength = max(w, h)  # 找出最大的边
-    mul = 400 / mlength  # 缩放倍数
-    w1 = int(w * mul)  # 重新获得高和宽
-    h1 = int(h * mul)
-    return image.resize((w1, h1))    
+    # w, h = image.size
+    # mlength = max(w, h)  # 找出最大的边
+    # mul = 400 / mlength  # 缩放倍数
+    # w1 = int(w * mul)  # 重新获得高和宽
+    # h1 = int(h * mul)
+    size = 128
+    return image.resize((size, size))    
 
 
 root = Tk()
