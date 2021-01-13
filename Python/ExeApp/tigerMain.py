@@ -49,34 +49,28 @@ class App(ttk.Frame):
         self.save_datapath = 'StringVar()' 
         self.save_data_path()
 
-        self.imageshow()
+        self.turnformat()
 
         self.run()   
         self._layout()
 
 
-
     def data_path(self):
-        self.hi_there = ttk.Button(self)
-        self.hi_there["text"] = "获取资源目录"
-        self.hi_there["command"] = self.get_data_path
-        self.print_label = ttk.Label(textvariable=self.datapathshow)
+        self.ui_datapath = ttk.Button(self)
+        self.ui_datapath["text"] = "获取资源目录"
+        self.ui_datapath["command"] = self.get_data_path
+        self.ui_datapath_labe = ttk.Label(textvariable=self.datapathshow)
 
     def save_data_path(self):
-        self.hi_there2 = ttk.Button(self)
-        self.hi_there2["text"] = "存放目录"
-        self.hi_there2["command"] = self.get_save_datapath
-        self.print_labe2 = ttk.Label(textvariable=self.savedatapathshow)   
+        self.ui_save_data_path = ttk.Button(self)
+        self.ui_save_data_path["text"] = "存放目录"
+        self.ui_save_data_path["command"] = self.get_save_datapath
+        self.ui_save_data_path_labe = ttk.Label(textvariable=self.savedatapathshow)   
 
     def run(self):
-        self.hi_there3 = ttk.Button(self)
-        self.hi_there3["text"] = "开始执行合并"
-        self.hi_there3["command"] = self.get_run
-
-    def imageshow(self):
-        self.hi_there4 = PhotoImage(r'F:\Main_Project\Python-Substance\Python\PyGame\images\alien.bmp')
-        self.label=Label(image=self.hi_there4)
-        self.label.image=self.hi_there4
+        self.ui_run = ttk.Button(self)
+        self.ui_run["text"] = "开始执行合并"
+        self.ui_run["command"] = self.get_run
 
     def get_run(self):
         """启动获取动作"""
@@ -108,6 +102,27 @@ class App(ttk.Frame):
         print("图像已合并为：" + texture_name + " 格式为：" + texture_mode)
         print("-------------图像合并完成-------------")
 
+    def turnformat(self):
+        self.ui_turnformat = ttk.Button(self)
+        self.ui_turnformat["text"] = "批量转格式"
+        self.ui_turnformat["command"] = self.get_turnformat
+        
+    def get_turnformat(self):
+        """批量转图片格式"""
+        print ("-------------程序开始运行-------------")
+        list = get_filelist(self.datapath, []) #遍历文件夹，得到文件
+        for e in list:
+            print(e)
+            img = Image.open(e)
+            saveformat = '.png'
+            outfile = os.path.splitext(e)[0] + saveformat
+            if img.format == 'JPEG':
+                if e != outfile:                
+                    try:
+                        Image.open(e).save(outfile)
+                    except IOError:
+                        print ("cannot convert", e)            
+        print("-------------图像转换完成-------------")
 
 
     def _layout(self):
@@ -115,13 +130,13 @@ class App(ttk.Frame):
         self.master.geometry('1024x512+50+50') # 尺寸
         self.grid()
         
-        self.hi_there.grid(row=0) 
-        self.print_label.grid(row=0, column=1)
-        self.hi_there2.grid(row=1)
-        self.print_labe2.grid(row=1, column=1)
-        self.hi_there3.grid(row=2)
+        self.ui_datapath.grid(row=0) 
+        self.ui_datapath_labe.grid(row=0, column=1)
+        self.ui_save_data_path.grid(row=1)
+        self.ui_save_data_path_labe.grid(row=1, column=1)
+        self.ui_run.grid(row=2)
+        self.ui_turnformat.grid(row=3)
 
-        self.label.grid(row=3,column=3)
         # self.hi_there2.grid(row=1, column=0, sticky=(N, W, E, S))
         # self.print_labe2.grid(row=1, column=1, sticky=(E))
 
@@ -130,18 +145,26 @@ class App(ttk.Frame):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
 
         list = get_filelist(self.datapath, [])
-        print('文件夹内包含贴图总数量：' + str(len(list))) #得到文件数量
+        print('文件夹内贴图总数：' + str(len(list))) #得到文件数量
         # newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
 
-        # responses = {} #创建字典
+        responses = {} #创建字典
         a = 0
         for e in list:
-            print(e)
+            # print(e)
             img = Image.open(e) #读取图像
+            b = img
 
-            # name = str(e)
-            # b = img
-            # responses[name] = b
+            end = e.split("_")[0]  #!后缀  而不是整个目录
+            print(end)
+            if (e.split("_")[0]) == 'Normal':
+                name = 'Normal' #类型：字符串                
+                responses[name] = b #类型：数据内存
+            else:
+                name2 = 'Albedo' #类型：字符串
+                responses[name2] = b
+            # print("---------------responses")
+            # print(responses[a].)
 
             # canvas[a]=tk.Canvas(self.master ,height=size, width=size, highlightthickness=0, bg='#ff0000')
             # canvas[a].grid(row=5, column=1+a, sticky=tk.W, columnspan=3)
@@ -150,14 +173,22 @@ class App(ttk.Frame):
             global imga   #要申明全局变量我猜测是调用了canvas
             re_image = resize(img)  # 调用函数
             imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
-            print("---------------imga")
-            print(imga)
+            # print("---------------imga")
+            # print(imga)
             canvas = tk.Canvas(self.master, width=size, height=size, bg = '#262626')
             canvas.create_image(size/2+1, size/2+1, image=imga) #中心填充
             canvas.grid(row=5, column=a)
 
 
             a += 1
+
+        print("\n--- responses ---")
+        for c in range(a):
+            for name, b in responses.items():    #循环打印
+                # if name[:5]
+                print(name) 
+                print(b) 
+        print("\n--- responses ---!")            
 
         # https://bbs.csdn.net/topics/391902047?page=1
         # from tkinter import *
@@ -204,7 +235,5 @@ def resize(image):
 
 
 root = Tk()
-
-
 app = App(root)
 app.mainloop()
