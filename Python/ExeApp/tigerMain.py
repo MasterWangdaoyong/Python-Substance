@@ -76,6 +76,8 @@ class App(ttk.Frame):
         """启动获取动作"""
         print ("-------------程序开始运行-------------")
         list = get_filelist(self.datapath, []) #遍历文件夹，得到文件
+        print('---------------list')
+        print(list)
         print('文件夹内包含贴图总数量：' + str(len(list))) #得到文件数量
         newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
         a = 0
@@ -116,7 +118,8 @@ class App(ttk.Frame):
             img = Image.open(e)
             saveformat = '.png'
             outfile = os.path.splitext(e)[0] + saveformat
-            if img.format == 'JPEG':
+            #JPEG
+            if img.format == 'TGA':
                 if e != outfile:                
                     try:
                         Image.open(e).save(outfile)
@@ -146,48 +149,81 @@ class App(ttk.Frame):
 
         list = get_filelist(self.datapath, [])
         print('文件夹内贴图总数：' + str(len(list))) #得到文件数量
-        # newimg = Image.new('RGB',(512,512),(128,128,128)) #建立一个新图片
+        print('---------------list')
+        print(list)
 
         responses = {} #创建字典
         a = 0
         for e in list:
-            # print(e)
-            img = Image.open(e) #读取图像
-            b = img
+            # img = Image.open(e) #读取图像
 
-            end = e.split("_")[0]  #!后缀  而不是整个目录
-            print(end)
-            if (e.split("_")[0]) == 'Normal':
-                name = 'Normal' #类型：字符串                
-                responses[name] = b #类型：数据内存
+            end = e.split("_")[3]  #文件名分割判断  而不是整个目录
+            end2 = end.split(".")[0] #文件名再次分割判断 
+            # print('-------end2')
+            # print(end2)
+            if end2 == 'Normal':
+                name = 'Normal' #类型：字符串   字典中的key          
+                responses.setdefault(name,[]).append(e)  #类型：数据内存 字典中的多值
+                # https://www.cnblogs.com/rrttp/p/8493264.html
+            elif end2 == 'Emiss':
+                name1 = 'Emiss'            
+                responses.setdefault(name1,[]).append(e)
+            elif end2 == 'Mask':
+                name2 = 'Mask'                
+                responses.setdefault(name2,[]).append(e)
             else:
-                name2 = 'Albedo' #类型：字符串
-                responses[name2] = b
+                name3 = 'Albedo' 
+                responses.setdefault(name3,[]).append(e)
             # print("---------------responses")
             # print(responses[a].)
 
             # canvas[a]=tk.Canvas(self.master ,height=size, width=size, highlightthickness=0, bg='#ff0000')
             # canvas[a].grid(row=5, column=1+a, sticky=tk.W, columnspan=3)
 
-            size = 128
-            global imga   #要申明全局变量我猜测是调用了canvas
-            re_image = resize(img)  # 调用函数
-            imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
-            # print("---------------imga")
-            # print(imga)
-            canvas = tk.Canvas(self.master, width=size, height=size, bg = '#262626')
-            canvas.create_image(size/2+1, size/2+1, image=imga) #中心填充
-            canvas.grid(row=5, column=a)
+            # size = 128
+            # global imga   #要申明全局变量我猜测是调用了canvas
+            # re_image = resize(img)  # 调用函数
+            # imga = ImageTk.PhotoImage(re_image)  # PhotoImage类是用来在label和canvas展示图片用的
+            # # print("---------------imga")
+            # # print(imga)
+            # canvas = tk.Canvas(self.master, width=size, height=size, bg = '#262626')
+            # canvas.create_image(size/2+1, size/2+1, image=imga) #中心填充
+            # canvas.grid(row=5, column=a)
 
 
             a += 1
 
         print("\n--- responses ---")
-        for c in range(a):
-            for name, b in responses.items():    #循环打印
-                # if name[:5]
-                print(name) 
-                print(b) 
+        a = 0
+        for name, b in responses.items():    #循环打印
+            print(name.title())
+            print(b) 
+            # for bb in b:
+            #     print(bb)
+            newimg = Image.new('RGB',(2048,2048),(128,128,128)) #建立一个新图片
+            cc = 0
+            for bb in b:
+                print("\n--- BB ---K")
+                print(bb)
+                print("\n--- BB ---END")          
+                img = Image.open(bb) #读取图像
+                if cc == 0:
+                    newimg.paste(img, (0,0))    #转填充图像，以512大小为例，00为左上，256，256为中心
+                elif cc == 1:
+                    newimg.paste(img, (0,1024))
+                elif cc == 2:
+                    newimg.paste(img, (1024,0))
+                else :
+                    newimg.paste(img, (1024,1024))                
+                # print('-------------a-----k')
+                # print(a)
+                # print('-------------a-----e')
+                cc +=1
+
+            a += 1
+            texture_name = str(a) + 'T2.png'
+            texture_mode = 'png'
+            newimg.save(self.save_datapath + '/' + texture_name, texture_mode)    
         print("\n--- responses ---!")            
 
         # https://bbs.csdn.net/topics/391902047?page=1
