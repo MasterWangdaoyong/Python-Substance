@@ -149,17 +149,20 @@ class App(ttk.Frame):
 
         list = get_filelist(self.datapath, [])
         print('文件夹内贴图总数：' + str(len(list))) #得到文件数量
-        print('---------------list')
+        print('---------------list-------------->')
         print(list)
+        print('---------------list------------END')
 
         responses = {} #创建字典
         a = 0
         for e in list:
             # img = Image.open(e) #读取图像
-
+            
             end = e.split("_")[3]  #文件名分割判断  而不是整个目录
             end2 = end.split(".")[0] #文件名再次分割判断 
-            # print('-------end2')
+            # print('-------end---------------')
+            # print(end)
+            # print('-------end2---------------')
             # print(end2)
             if end2 == 'Normal':
                 name = 'Normal' #类型：字符串   字典中的key          
@@ -174,8 +177,6 @@ class App(ttk.Frame):
             else:
                 name3 = 'Albedo' 
                 responses.setdefault(name3,[]).append(e)
-            # print("---------------responses")
-            # print(responses[a].)
 
             # canvas[a]=tk.Canvas(self.master ,height=size, width=size, highlightthickness=0, bg='#ff0000')
             # canvas[a].grid(row=5, column=1+a, sticky=tk.W, columnspan=3)
@@ -194,36 +195,58 @@ class App(ttk.Frame):
             a += 1
 
         print("\n--- responses ---")
-        a = 0
-        for name, b in responses.items():    #循环打印
-            print(name.title())
-            print(b) 
+
+        a512 = 0             
+        a1024 = 0
+        cc = 0
+        cc2 = 0
+        for name, valueAll in responses.items():    #循环打印
+            # print(name.title())
+            # print(valueAll) 
+            # print("\n----------")
             # for bb in b:
             #     print(bb)
-            newimg = Image.new('RGB',(2048,2048),(128,128,128)) #建立一个新图片
-            cc = 0
-            for bb in b:
-                print("\n--- BB ---K")
-                print(bb)
-                print("\n--- BB ---END")          
-                img = Image.open(bb) #读取图像
-                if cc == 0:
-                    newimg.paste(img, (0,0))    #转填充图像，以512大小为例，00为左上，256，256为中心
-                elif cc == 1:
-                    newimg.paste(img, (0,1024))
-                elif cc == 2:
-                    newimg.paste(img, (1024,0))
-                else :
-                    newimg.paste(img, (1024,1024))                
-                # print('-------------a-----k')
-                # print(a)
-                # print('-------------a-----e')
-                cc +=1
+            newimg1 = Image.new('RGB',(1024,1024),(128,128,128)) #建立一个新图片
+            newimg2 = Image.new('RGB',(2048,2048),(128,128,128)) #建立一个新图片
 
-            a += 1
-            texture_name = str(a) + 'T2.png'
-            texture_mode = 'png'
-            newimg.save(self.save_datapath + '/' + texture_name, texture_mode)    
+            for value in valueAll:
+                # print("n--- value ---K")
+                # print(value)
+                # print("n--- value ---END")          
+                img = Image.open(value) #读取图像
+                w, h = img.size
+                texture_mode = 'png'   
+
+                if w == 512:
+                    if cc == 0:
+                        newimg1.paste(img, (0,0))    #转填充图像，以512大小为例，00为左上，256，256为中心
+                    elif cc == 1:
+                        newimg1.paste(img, (0,512))
+                    elif cc == 2:
+                        newimg1.paste(img, (512,0))
+                    else:
+                        newimg1.paste(img, (512,512))
+                    texture_name = '_' + str(a512) + 'T2.png'                            
+                    newimg1.save(self.save_datapath + '/' + '512_' + texture_name, texture_mode)
+                    a512 += 1     
+                elif w == 1024:
+                    if cc2 == 0:
+                        newimg2.paste(img, (1024,1024))    #转填充图像，以512大小为例，00为左上，256，256为中心
+                    elif cc2 == 1:
+                        newimg2.paste(img, (0,0))
+                    elif cc2 == 2:
+                        newimg2.paste(img, (0,1024))
+                    else:
+                        newimg2.paste(img, (1024,0))
+                    texture_name2 = '_' + str(a1024) + 'T2.png'     
+                    newimg2.save(self.save_datapath + '/' + '1024_' + texture_name2, texture_mode) 
+                    a1024 += 1                                     
+                else:
+                    print('----------------------------------------分辩率大小错误')
+                
+                cc += 1
+                cc2 += 1
+
         print("\n--- responses ---!")            
 
         # https://bbs.csdn.net/topics/391902047?page=1
