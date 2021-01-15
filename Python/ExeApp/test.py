@@ -1,30 +1,24 @@
-from tkinter import *
-from tkinter import ttk
+import tkinter
+import tkinter.ttk
 
-class Application(Frame):
-    def say_hi(self):
-        print ("hi there, everyone!")
 
-    def createWidgets(self):
-        self.QUIT = Button(self)
-        self.QUIT["text"] = "QUIT"
-        self.QUIT["fg"]   = "red"
-        self.QUIT["command"] =  self.quit
+def show():
+    # 使用var.get()来获得目前选项内容
+    varLabel.set(var.get())
 
-        self.QUIT.pack({"side": "left"})
 
-        self.hi_there = Button(self)
-        self.hi_there["text"] = "Hello",
-        self.hi_there["command"] = self.say_hi
+root = tkinter.Tk()
+var = tkinter.StringVar()
+combobox = tkinter.ttk.Combobox(root, textvariable=var)
+combobox['value'] = ('python', 'java', 'C', 'C++')
+combobox.current(0)
+combobox.pack(padx=5, pady=10)
 
-        self.hi_there.pack({"side": "left"})
+varLabel = tkinter.StringVar()
+label = tkinter.Label(root, textvariable=varLabel, width=20, height=3, bg='lightblue', fg='red')
+label.pack()
 
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
-        self.pack()
-        self.createWidgets()
+button = tkinter.Button(root, text='print', command=show)
+button.pack()
 
-root = Tk()
-app = Application(master=root)
-app.mainloop()
-root.destroy()
+root.mainloop()
