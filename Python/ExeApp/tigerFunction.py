@@ -32,82 +32,125 @@ class mainTab1(ttk.Frame):
         tk.Frame.__init__(self, master)
         self.master = master
 
-        self.datapath = 'StringVar()' #指定类型
+        self.datapath = '' #指定类型
         self.datapathshow = StringVar() #注意声明变量时的  前后位置
+        self.list = ''
 
-        self.save_datapath = 'StringVar()'
+        self.save_datapath = ''
         self.save_datapathshow = StringVar()
 
-
-
-
-
-
-
-
-
+        self.texture_format = ''
+        self.texture_format_show = StringVar()
+        self.save_texture_format = ''
+        self.save_texture_format_show = StringVar()
 
         self.grid() #必不可少 面板类别定义 循环
-        self.UIupdate()       
+        self.UIupdate() 
+
+    def _spin(self):
+        self.texture_format = self.spin.get()
+        print(self.texture_format)
+
+    def _spin2(self):
+        self.save_texture_format = self.spin2.get()
+        print(self.save_texture_format)                     
 
     def UIupdate(self):
-        self.action = ttk.Button(self,text="资源目录",width=10) 
-        self.action["command"] = self.get_data_path  
-        self.action.grid(column=0,row=0, pady=10)
+        action = ttk.Button(self,text="资源目录",width=10) 
+        action["command"] = self.get_data_path  
+        action.grid(column=0,row=0, pady=10)
         ttk.Label(self, textvariable=self.datapathshow).grid(column=1, row=0,sticky='W')
 
         ttk.Label(self, text="--格式选择-->").grid(column=0, row=1,sticky='W')
-
-        self.book = tk.StringVar()
-        self.bookChosen = ttk.Combobox(self, width=12, textvariable=self.book)
-        self.bookChosen['values'] = ('JPEG', 'TGA','PNG')
-        self.bookChosen.grid(column=3, row=1)
-        self.bookChosen.current(0)  #设置初始显示值，值为元组['values']的下标
-        self.bookChosen.config(state='readonly')  #设为只读模式
+        
+        self.spin = Spinbox(self, values=('JPEG', 'TGA','PNG'), width=13, bd=3) 
+        self.spin["command"] = self._spin 
+        self.spin.grid(column=3, row=1)
+        
+        # bookChosen = ttk.Combobox(self, width=12, textvariable=self.book)
+        # bookChosen['values'] = ('JPEG', 'TGA','PNG')
+        # bookChosen.grid(column=3, row=1)
+        # # bookChosen.current(1)  #设置初始显示值，值为元组['values']的下标
+        # self.texture_format = bookChosen.get()
+        # print('------------texture_format------------')
+        # print(self.texture_format)
+        # # bookChosen.bind('<<ComboboxSelected>>', self.texture_format.set(self.book.get()))
+        # bookChosen.config(state='readonly')  #设为只读模式
 
         ttk.Label(self, text="--转到-->").grid(column=4, row=1,sticky='W')
 
-        self.book2 = tk.StringVar()
-        self.bookChosen2 = ttk.Combobox(self, width=12, textvariable=self.book2)
-        self.bookChosen2['values'] = ('JPEG', 'TGA','PNG')
-        self.bookChosen2.grid(column=5, row=1)
-        self.bookChosen2.current(0)  #设置初始显示值，值为元组['values']的下标
-        self.bookChosen2.config(state='readonly')  #设为只读模式
+        self.spin2 = Spinbox(self, values=('jpg', 'tga','png'), width=13, bd=3) 
+        self.spin2["command"] = self._spin2 
+        self.spin2.grid(column=5, row=1)        
 
-        self.action = ttk.Button(self,text="输出目录",width=10)
-        self.action["command"] = self.save_data_path
-        self.action.grid(column=0,row=3)
+        action = ttk.Button(self,text="输出目录",width=10)
+        action["command"] = self.save_data_path
+        action.grid(column=0,row=3)
         ttk.Label(self, textvariable=self.save_datapathshow).grid(column=1, row=3,sticky='W')
 
-        self.action = ttk.Button(self,text="确认转换",width=10)  
-        self.action["command"] = self.get_turnformat 
-        self.action.grid(column=0,row=4)        
+        action = ttk.Button(self,text="确认转换",width=10)
+        action["command"] = self.get_turnformat
+        action.grid(column=0,row=4)
+        
 
     def get_turnformat(self):
         """批量转图片格式"""
-        print ("-------------程序开始运行-------------")
-        list = get_filelist(self.datapath, []) #遍历文件夹，得到文件
-        for e in list:
-            print(e)
+        print('------------texture_format------------')
+        print(self.texture_format)
+        print ("-------------批量转换开始-------------")
+        print('------------save_texture_format------------')
+        print(self.save_texture_format)
+        filepath = ''
+        if self.save_datapath == '':
+            filepath = self.datapath
+        else:
+            filepath = self.save_datapath
+        for e in self.list:
             img = Image.open(e)
-            saveformat = '.png'
-            outfile = os.path.splitext(e)[0] + saveformat
-            #JPEG
-            if img.format == 'TGA':
-                if e != outfile:                
+            file = os.path.splitext(e)[0]
+            filename = os.path.basename(e)
+            filename2 = filename.split(".")[0]
+            texture_name = filepath + '/' + filename2 + '.' + self.save_texture_format
+            # texture_name = self.save_datapath + '/' + filename2 + '_'  + str(a) + '.' + self.save_texture_format
+            if img.format == self.texture_format:
+                if e != file:                
                     try:
-                        Image.open(e).save(outfile)
+                        Image.open(e).save(texture_name)
+                        print(filename + ' -----------> ' + filename2 + '.' + self.save_texture_format)
                     except IOError:
-                        print ("cannot convert", e)            
-        print("-------------图像转换完成-------------")     
+                        print ("存在错误", e)                      
+        print("-------------批量转换完成-------------")     
 
     def get_data_path(self):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
         self.datapathshow.set(self.datapath)  #把目录显示出来
+        self.list = get_filelist(self.datapath, []) #遍历文件夹，得到文件
+        
+        tgaN = 0
+        jpgN = 0
+        pngN = 0
+        for e in self.list:
+            try :
+                img = Image.open(e)            
+                if img.format == 'TGA':
+                    tgaN += 1
+                if img.format == 'JPEG':
+                    jpgN += 1
+                if img.format == 'PNG':
+                    pngN += 1
+            except IOError:
+                print ("存在错误: 请保持文件夹内资源为全图片资源")
+        print('tga ：' + str(tgaN)) #得到文件数量
+        print('jpg ：' + str(jpgN)) #得到文件数量
+        print('png ：' + str(pngN)) #得到文件数量
+        print('资源总数 ：' + str(len(self.list))) #得到文件数量
+        print('贴图总数 ：' + str(tgaN + jpgN + pngN) )
 
     def save_data_path(self):
         self.save_datapath = filedialog.askdirectory() 
-        self.save_datapathshow.set(self.save_datapath)  
+        self.save_datapathshow.set(self.save_datapath)
+
+
 
  
 

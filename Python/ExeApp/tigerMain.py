@@ -235,5 +235,6 @@ action = ttk.Button(tab4,text="TimeMachine:",width=15, command=openweb)
 action.grid(column=0,row=3,sticky='W')
 ttk.Label(tab4, text="https://github.com/MasterWangdaoyong").grid(column=1, row=3, sticky='W')
 #---------------Tab4控件------------------#
+# root.iconbitmap(r'F:\Main_Project\Python-Substance\Python\ExeApp\Icon.ico') #还存在些打包问题
 
 root.mainloop()
