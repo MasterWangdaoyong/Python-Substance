@@ -10,6 +10,7 @@ from tkinter import N, W, E, S
 from tkinter import StringVar
 import tkinter as tk
 from PIL import ImageTk
+from tkinter import scrolledtext
 
 def get_filelist(dir, Filelist):
     """遍历文件夹内的文件"""
@@ -39,9 +40,9 @@ class mainTab1(ttk.Frame):
         self.save_datapath = ''
         self.save_datapathshow = StringVar()
 
-        self.texture_format = ''
+        self.texture_format = 'JPEG'
         self.texture_format_show = StringVar()
-        self.save_texture_format = ''
+        self.save_texture_format = 'jpg'
         self.save_texture_format_show = StringVar()
 
         self.grid() #必不可少 面板类别定义 循环
@@ -49,33 +50,23 @@ class mainTab1(ttk.Frame):
 
     def _spin(self):
         self.texture_format = self.spin.get()
-        print(self.texture_format)
+        self.scr.insert(tk.INSERT, '前格式--> ' + self.texture_format + '\n')
 
     def _spin2(self):
         self.save_texture_format = self.spin2.get()
-        print(self.save_texture_format)                     
+        self.scr.insert(tk.INSERT, '转换成--> ' + self.save_texture_format + '\n')                 
 
     def UIupdate(self):
         action = ttk.Button(self,text="资源目录",width=10) 
         action["command"] = self.get_data_path  
         action.grid(column=0,row=0, pady=10)
-        ttk.Label(self, textvariable=self.datapathshow).grid(column=1, row=0,sticky='W')
+        ttk.Label(self, textvariable=self.datapathshow).grid(column=1, row=0, columnspan=20, sticky='W')
 
         ttk.Label(self, text="--格式选择-->").grid(column=0, row=1,sticky='W')
         
         self.spin = Spinbox(self, values=('JPEG', 'TGA','PNG'), width=13, bd=3) 
         self.spin["command"] = self._spin 
         self.spin.grid(column=3, row=1)
-        
-        # bookChosen = ttk.Combobox(self, width=12, textvariable=self.book)
-        # bookChosen['values'] = ('JPEG', 'TGA','PNG')
-        # bookChosen.grid(column=3, row=1)
-        # # bookChosen.current(1)  #设置初始显示值，值为元组['values']的下标
-        # self.texture_format = bookChosen.get()
-        # print('------------texture_format------------')
-        # print(self.texture_format)
-        # # bookChosen.bind('<<ComboboxSelected>>', self.texture_format.set(self.book.get()))
-        # bookChosen.config(state='readonly')  #设为只读模式
 
         ttk.Label(self, text="--转到-->").grid(column=4, row=1,sticky='W')
 
@@ -86,20 +77,22 @@ class mainTab1(ttk.Frame):
         action = ttk.Button(self,text="输出目录",width=10)
         action["command"] = self.save_data_path
         action.grid(column=0,row=3)
-        ttk.Label(self, textvariable=self.save_datapathshow).grid(column=1, row=3,sticky='W')
+        ttk.Label(self, textvariable=self.save_datapathshow).grid(column=1, row=3, columnspan=20, sticky='W')
 
         action = ttk.Button(self,text="确认转换",width=10)
         action["command"] = self.get_turnformat
         action.grid(column=0,row=4)
+
+        monty = ttk.LabelFrame(self, text='终端消息显示')
+        monty.grid(column=0, row=5, columnspan=40, padx=10, pady=10)
+
+        self.scr = scrolledtext.ScrolledText(monty, relief="solid")
+        self.scr.grid(column=0, row=0, columnspan=35)
         
 
     def get_turnformat(self):
         """批量转图片格式"""
-        print('------------texture_format------------')
-        print(self.texture_format)
-        print ("-------------批量转换开始-------------")
-        print('------------save_texture_format------------')
-        print(self.save_texture_format)
+        self.scr.insert(tk.INSERT, '-------------转换开始-------------' + '\n')
         filepath = ''
         if self.save_datapath == '':
             filepath = self.datapath
@@ -116,16 +109,17 @@ class mainTab1(ttk.Frame):
                 if e != file:                
                     try:
                         Image.open(e).save(texture_name)
-                        print(filename + ' -----------> ' + filename2 + '.' + self.save_texture_format)
+                        self.scr.insert(tk.INSERT, filename + ' ----> ' + filename2 + '.' + self.save_texture_format + '\n')
                     except IOError:
-                        print ("存在错误", e)                      
-        print("-------------批量转换完成-------------")     
+                        self.scr.insert(tk.INSERT, '-------------转换存在错误-------------' + '\n')               
+        self.scr.insert(tk.INSERT, '-------------转换完成-------------' + '\n')
 
     def get_data_path(self):
         self.datapath = filedialog.askdirectory() #弹开面板，选择获取文件夹，得到路径)
+        self.scr.insert(tk.INSERT, '-------------资源目录-------------' + '\n')
+        self.scr.insert(tk.INSERT, self.datapath + '\n')
         self.datapathshow.set(self.datapath)  #把目录显示出来
-        self.list = get_filelist(self.datapath, []) #遍历文件夹，得到文件
-        
+        self.list = get_filelist(self.datapath, []) #遍历文件夹，得到文件        
         tgaN = 0
         jpgN = 0
         pngN = 0
@@ -139,16 +133,20 @@ class mainTab1(ttk.Frame):
                 if img.format == 'PNG':
                     pngN += 1
             except IOError:
-                print ("存在错误: 请保持文件夹内资源为全图片资源")
-        print('tga ：' + str(tgaN)) #得到文件数量
-        print('jpg ：' + str(jpgN)) #得到文件数量
-        print('png ：' + str(pngN)) #得到文件数量
-        print('资源总数 ：' + str(len(self.list))) #得到文件数量
-        print('贴图总数 ：' + str(tgaN + jpgN + pngN) )
+                self.scr.insert(tk.INSERT, '存在错误: 请保持文件夹内资源为全图片资源，支持TGA，JPEG，PNG' + '\n')                
+        self.scr.insert(tk.INSERT, '-------------资源统计-------------' + '\n')
+        self.scr.insert(tk.INSERT, 'tga ：' + str(tgaN) + '\n') 
+        self.scr.insert(tk.INSERT, 'jpg ：' + str(jpgN) + '\n')
+        self.scr.insert(tk.INSERT, 'png ：' + str(pngN) + '\n')
+        self.scr.insert(tk.INSERT, '资源总数 ：' + str(len(self.list)) + '\n')
+        self.scr.insert(tk.INSERT, '贴图总数 ：' + str(tgaN + jpgN + pngN) + '\n')              
+
 
     def save_data_path(self):
         self.save_datapath = filedialog.askdirectory() 
         self.save_datapathshow.set(self.save_datapath)
+        self.scr.insert(tk.INSERT, '-------------输出目录-------------' + '\n')
+        self.scr.insert(tk.INSERT, self.save_datapath + '\n')
 
 
 
