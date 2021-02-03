@@ -12,3 +12,8 @@
 
 2020年下半年 Substance Automation Toolkit  python 批量更新
 ![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Substance/GifShow/test_SubstanceAutomationToolkitZ_updata_20201010.gif)
+
+2020年下半年 python 生成 批量图片处理win exe软件
+![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Python/Show/%E6%89%B9%E9%87%8F%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%EF%BC%8DShow00.png)
+![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Python/Show/%E6%89%B9%E9%87%8F%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%EF%BC%8DShow01.png)
+![image](https://github.com/MasterWangdaoyong/Python-Substance/blob/master/Python/Show/%E6%89%B9%E9%87%8F%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%EF%BC%8DShow02.png)
