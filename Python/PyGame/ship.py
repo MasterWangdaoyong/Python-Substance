@@ -14,7 +14,7 @@ class Ship(Sprite): #功能继承
         self.screen = screen
         self.ai_settings = ai_settings
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load(r'G:\Python-Substance\Python\PyGame\images\ship.bmp') #加载图像
+        self.image = pygame.image.load(r'E:\Python-Substance\Python\PyGame\images\ship.bmp') #加载图像
         # 如果报错，需要给绝对路径
         self.rect = self.image.get_rect()   #获取贴图属性 矩形高效
         self.screen_rect = screen.get_rect()    #获取画布属性
