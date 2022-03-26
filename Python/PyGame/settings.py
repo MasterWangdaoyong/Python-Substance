@@ -14,12 +14,12 @@ class Settings():
         self.bg_color = (230, 230, 230) #屏色
         
         # 飞船设置
-        self.ship_speed_factor = 1.5 # 飞船的速度
+        self.ship_speed_factor = 10 # 飞船的速度
         self.ship_limit = 3
         
         # 子弹设置
         self.bullet_speed_factor = 3 #速度
-        self.bullet_width = 30  #图宽
+        self.bullet_width = 160  #图宽
         self.bullet_height = 15  #图高
         self.bullet_color = 60, 60, 60  #图色
         self.bullet_allowed = 3 #数量
@@ -31,7 +31,7 @@ class Settings():
         self.fleet_direction = 1
 
         # 以什么样的速度加快游戏节奏
-        self.speedup_scale = 1.5
+        self.speedup_scale = 3
         self.score_scale = 1.5  #将分数纳入到速度控制里
         self.initialize_dynamic_settings()
 
